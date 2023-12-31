@@ -1,13 +1,7 @@
 'use client'
 
+import { navbarRoutes } from '../../utils/data/mock-data'
 import { useRouter } from 'next/navigation'
-
-const routes = [
-  { route: '/reservations', title: 'Reservations' },
-  { route: '/reports', title: 'Reports' },
-  { route: '/backoffice', title: 'Backoffice' },
-  { route: '/calendar', title: 'Calendar' },
-]
 
 const navbar = () => {
   const router = useRouter()
@@ -27,7 +21,7 @@ const navbar = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                {routes.map((route: any, index: number) => (
+                {navbarRoutes.map((route: any, index: number) => (
                   <button
                     key={route + index}
                     onClick={() => router.push(route.route)}
