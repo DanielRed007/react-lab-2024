@@ -1,6 +1,6 @@
-import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import Page from '../../src/app/page'
+import '@testing-library/jest-dom'
 
 describe('Home Page Test Suite', () => {
   it('renders a heading', () => {
@@ -9,6 +9,6 @@ describe('Home Page Test Suite', () => {
     const heading = screen.getByRole('heading', { level: 1 })
 
     expect(heading).toBeInTheDocument()
-    expect(heading).toHaveTextContent('Home')
+    expect(heading).toHaveTextContent('ReactJS + NextJS Laboratory')
   })
 })

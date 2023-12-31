@@ -3,7 +3,7 @@ import Header from './shared/header/Header'
 export default function Page() {
   return (
     <>
-      <Header title="Home" />
+      <Header title="ReactJS + NextJS Laboratory" />
     </>
   )
 }

@@ -28,14 +28,14 @@ const navbar = () => {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {routes.map((route: any, index: number) => (
-                  <a
+                  <button
                     key={route + index}
                     onClick={() => router.push(route.route)}
                     className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
                     aria-current="page"
                   >
                     {route.title}
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>
