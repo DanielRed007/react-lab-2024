@@ -1,14 +1,11 @@
-interface IHomeInfoCard {
-  info: ICardInfo[]
-}
+'use client'
 
-interface ICardInfo {
-  title: string
-  subtitle: string
-  description: string
-}
+import { IHomeInfoCard } from '@/app/utils/interface/interfaces'
+import { useRouter } from 'next/navigation'
 
 const HomeInfoCard = ({ info }: IHomeInfoCard) => {
+  const router = useRouter()
+
   return (
     <div className="gap-8 columns-3 mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       {info.map((card, index) => (
@@ -20,8 +17,11 @@ const HomeInfoCard = ({ info }: IHomeInfoCard) => {
 
             <p className="text-gray-800 mb-6">{card.description}</p>
 
-            <button className="bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue">
-              Click Me
+            <button
+              onClick={() => router.push(card.link)}
+              className="bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue"
+            >
+              Go to {card.title}
             </button>
           </div>
         </div>
