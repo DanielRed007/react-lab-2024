@@ -1,7 +1,7 @@
 'use client'
 
-import { BeakerIcon, NextJSIcon } from '@/app/utils/icons/icons'
 import { navbarRoutes } from '../../utils/data/mock-data'
+import { BeakerIcon } from '../../utils/icons/icons'
 import { useRouter } from 'next/navigation'
 
 const navbar = () => {
