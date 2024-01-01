@@ -15,6 +15,23 @@ describe('Home Page Test Suite', () => {
     expect(sectionTitle).toHaveTextContent('ReactJS + NextJS Laboratory')
   })
 
+  it('Home Feature Section is rendered', () => {
+    render(<Page />)
+
+    const welcomeText = screen.getByText('Welcome to Lab 01')
+    expect(welcomeText).toBeInTheDocument()
+
+    const subtitleText = screen.getByText(
+      'An awesome ReactJS + NextJS + Tailwind UI Workshop',
+    )
+    expect(subtitleText).toBeInTheDocument()
+
+    const calendarCard = screen.getByText(
+      'A simple calendar application with a lot of modern features. Heavy emphasis on Unit Testing to guarantee code quality.',
+    )
+    expect(calendarCard).toBeInTheDocument()
+  })
+
   it('Home Page Cards are rendered', () => {
     render(<Page />)
 

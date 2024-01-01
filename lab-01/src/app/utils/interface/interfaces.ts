@@ -13,3 +13,16 @@ export interface INavbarRoute {
   route: string
   title: string
 }
+
+export interface IFeatureCard {
+  title: string
+  description: string
+  icon: React.ReactNode
+}
+
+export interface IFeatureTitleSection {
+  title: string
+  subtitle: string
+  description: string
+  icon: React.ReactNode
+}
