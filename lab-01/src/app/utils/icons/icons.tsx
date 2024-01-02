@@ -129,7 +129,11 @@ export const CodeIcon = ({ customClass, stroke }: IHeroIconProps) => {
   )
 }
 
-export const CalendarIcon = ({ customClass, stroke }: IHeroIconProps) => {
+export const CalendarIcon = ({
+  customClass,
+  stroke,
+  onClick,
+}: IHeroIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -138,6 +142,7 @@ export const CalendarIcon = ({ customClass, stroke }: IHeroIconProps) => {
       strokeWidth={stroke}
       stroke="currentColor"
       className={customClass}
+      onClick={onClick}
     >
       <path
         strokeLinecap="round"
