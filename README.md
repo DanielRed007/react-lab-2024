@@ -33,6 +33,7 @@ Clone the repo, inside You will find a series of labs just pick anyone you wish 
 ```bash
   npm install <any lab>
 ```
+
 Once inside the repo, run the test:
 
 ```bash
@@ -48,4 +49,9 @@ Lab 01 was built to implement new functionalities and features using NextJS and 
 ### Notes:
 
 - Redux/toolkit was added under the NextJS Strategy for the App routing methodology for such framework.
-- It works using Redux Devtools in Chromium  and/or supported browsers for the corresponding extension. 
+- It works using Redux Devtools in Chromium and/or supported browsers for the corresponding extension.
+
+### Related Links
+
+Icon Library: https://heroicons.com/
+Widgets JS Library: https://headlessui.com/
