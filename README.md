@@ -23,7 +23,8 @@ A workshop to study technical features about ReactJS and related technologies.
 - RemixJS
 - React Testing Library
 - Tailwind UI
-
+- Redux Toolkit
+- Redux Devtools
 
 ## Installation
 
@@ -43,3 +44,8 @@ Once inside the repo, run the test:
 ## Lab 01
 
 Lab 01 was built to implement new functionalities and features using NextJS and Tailwind UI, works as a Webpage the has many routes trying to leverage as much NextJS + ReactJS features as possible, also all the functionality has its corresponding Unit Tests.
+
+### Notes:
+
+- Redux/toolkit was added under the NextJS Strategy for the App routing methodology for such framework.
+- It works using Redux Devtools in Chromium  and/or supported browsers for the corresponding extension. 
