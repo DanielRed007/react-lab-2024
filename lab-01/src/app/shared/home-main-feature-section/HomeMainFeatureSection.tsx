@@ -1,4 +1,5 @@
 import { homeFeatureCards, homeTitleSection } from '../../utils/data/mock-data'
+import { IFeatureCard } from '@/app/utils/interface/interfaces'
 import FeatureTitleSection from './FeatureTitleSection'
 import FeatureCard from './FeatureCard'
 
@@ -14,7 +15,7 @@ const HomeMainFeatureSection = () => {
         />
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-            {homeFeatureCards.map((card, index) => (
+            {homeFeatureCards.map((card: IFeatureCard, index: number) => (
               <FeatureCard
                 key={index}
                 title={card.title}
