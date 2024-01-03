@@ -1,10 +1,10 @@
+import homeWidgetsReducer from './features/homeWidgetsReducer'
 import { configureStore } from '@reduxjs/toolkit'
-import testReducer from './features/testReducer'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      test: testReducer,
+      homeWidgets: homeWidgetsReducer,
     },
     devTools: process.env.NODE_ENV !== 'production',
   })
