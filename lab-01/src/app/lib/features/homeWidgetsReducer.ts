@@ -18,9 +18,17 @@ const homeWidgetsSlice = createSlice({
       const modalName = action.payload
       state[modalName] = !state[modalName]
     },
+    openModal: (state: any, action) => {
+      const modalName = action.payload
+      state[modalName] = true
+    },
+    closeModal: (state: any, action) => {
+      const modalName = action.payload
+      state[modalName] = false
+    },
   },
 })
 
-export const { toggleModal } = homeWidgetsSlice.actions
+export const { toggleModal, openModal, closeModal } = homeWidgetsSlice.actions
 
 export default homeWidgetsSlice.reducer
