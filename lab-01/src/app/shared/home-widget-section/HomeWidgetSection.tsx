@@ -11,6 +11,7 @@ import {
 import { Dialog, Transition } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import IconModal from '../icon-modal/IconModal'
+import WidgetIconLink from './WidgetIconLink'
 import { Fragment, useRef } from 'react'
 
 const HomeWidgetSection = () => {
@@ -33,15 +34,65 @@ const HomeWidgetSection = () => {
   return (
     <div className="bg-blue-700 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-          <CalendarIcon
-            customClass="h-24 w-24"
-            onClick={() => handleOpenModal('showModal1')}
-          />
-          <NextJSIcon customClass="h-24 w-24" />
-          <NextJSIcon customClass="h-24 w-24" />
-          <NextJSIcon customClass="h-24 w-24" />
-          <NextJSIcon customClass="h-24 w-24" />
+        <div className="col-span-full text-center mb-6">
+          <h2 className="text-5xl font-semibold text-white">
+            Modal Widgets Section
+          </h2>
+          <p className="text-3xl text-blue-950">
+            Beautiful widgets using Headless UI as Javascript Library
+          </p>
+        </div>
+
+        <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 flex items-center justify-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+          <WidgetIconLink
+            title="Basic Modal"
+            subtitle="Just click the icon to toggle the widget"
+          >
+            <CalendarIcon
+              customClass="h-24 w-24 text-blue-800"
+              onClick={() => handleOpenModal('showModal1')}
+            />
+          </WidgetIconLink>
+
+          <WidgetIconLink
+            title="Basic Modal"
+            subtitle="Just click the icon to toggle the widget"
+          >
+            <CalendarIcon
+              customClass="h-24 w-24 text-blue-800"
+              onClick={() => handleOpenModal('showModal1')}
+            />
+          </WidgetIconLink>
+
+          <WidgetIconLink
+            title="Basic Modal"
+            subtitle="Just click the icon to toggle the widget"
+          >
+            <CalendarIcon
+              customClass="h-24 w-24 text-blue-800"
+              onClick={() => handleOpenModal('showModal1')}
+            />
+          </WidgetIconLink>
+
+          <WidgetIconLink
+            title="Basic Modal"
+            subtitle="Just click the icon to toggle the widget"
+          >
+            <CalendarIcon
+              customClass="h-24 w-24 text-blue-800"
+              onClick={() => handleOpenModal('showModal1')}
+            />
+          </WidgetIconLink>
+
+          <WidgetIconLink
+            title="Basic Modal"
+            subtitle="Just click the icon to toggle the widget"
+          >
+            <CalendarIcon
+              customClass="h-24 w-24 text-blue-800"
+              onClick={() => handleOpenModal('showModal1')}
+            />
+          </WidgetIconLink>
         </div>
       </div>
 
@@ -57,9 +108,7 @@ const HomeWidgetSection = () => {
             <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
               <div className="mt-2">
                 <p className="text-sm text-gray-500">
-                  Are you sure you want to deactivate your account? All of your
-                  data will be permanently removed. This action cannot be
-                  undone.
+                  Simple Modal Using Headless UI
                 </p>
               </div>
             </div>
