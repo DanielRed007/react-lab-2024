@@ -4,16 +4,12 @@ interface HomeWidgetsState {
   showModal1: boolean
   showModal2: boolean
   showModal3: boolean
-  showModal4: boolean
-  showModal5: boolean
 }
 
 const initialState: HomeWidgetsState = {
   showModal1: false,
   showModal2: false,
   showModal3: false,
-  showModal4: false,
-  showModal5: false,
 }
 
 const homeWidgetsSlice = createSlice({
