@@ -49,6 +49,7 @@ const HomeWidgetSection = () => {
             subtitle="Just click the icon to toggle the widget"
           >
             <CalendarIcon
+              testId="calendar"
               customClass="h-24 w-24 text-blue-800"
               onClick={() => handleOpenModal('showModal1')}
             />
