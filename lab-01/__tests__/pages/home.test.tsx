@@ -94,4 +94,27 @@ describe('Home Page Test Suite', () => {
 
     expect(calendarModalTest).toBeInTheDocument()
   })
+
+  it('A Laboratory modal is rendered when clicking the Payment icon, click on cancel hides the modal', () => {
+    window.ResizeObserver = ResizeObserverMock
+    // Render component
+    renderComponent(<Page />)
+    // Activate Icon modal
+    const icon = screen.getByTestId('payment')
+
+    expect(icon).toBeInTheDocument()
+    // Click on icon
+    fireEvent.click(icon)
+
+    const calendarModalTest = screen.getByText('Payment Icon modal example')
+    // Modal Text must appear
+    expect(calendarModalTest).toBeInTheDocument()
+
+    // Click on cancel button
+    const cancelButton = screen.getByTestId('cancel-icon-modal')
+
+    fireEvent.click(cancelButton)
+    // Modal must not be rendered
+    expect(calendarModalTest).not.toBeInTheDocument()
+  })
 })
