@@ -1,5 +1,5 @@
-import type { Config } from 'jest'
 import nextJest from 'next/jest.js'
+import type { Config } from 'jest'
 
 const createJestConfig = nextJest({
   dir: './src',
@@ -7,7 +7,7 @@ const createJestConfig = nextJest({
 
 const config: Config = {
   coverageProvider: 'v8',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-environment-jsdom',
 }
 
 export default createJestConfig(config)
