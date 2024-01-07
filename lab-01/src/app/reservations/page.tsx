@@ -1,6 +1,6 @@
 'use client'
 
-import { fetchUser } from '../lib/features/reservationsReducer'
+import { fetchUser, fetchLocations } from '../lib/features/reservationsReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import Header from '../shared/header/Header'
 import { AppDispatch } from '../lib/store'
@@ -11,9 +11,8 @@ export default function Page() {
   const user = useSelector((state: any) => state.reservations.user)
 
   useEffect(() => {
-    console.log(user)
-
     dispatch(fetchUser())
+    dispatch(fetchLocations())
   }, [dispatch])
 
   return (

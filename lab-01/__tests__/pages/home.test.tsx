@@ -1,18 +1,10 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import { makeStore } from '../../src/app/lib/store'
+import { renderComponent } from '../testUtils/renderComponent'
+import { screen, fireEvent } from '@testing-library/react'
 import mockRouter from 'next-router-mock'
-import { Provider } from 'react-redux'
 import Page from '../../src/app/page'
 import '@testing-library/jest-dom'
-import { ReactNode } from 'react'
 
 jest.mock('next/navigation', () => jest.requireActual('next-router-mock'))
-
-const renderComponent = (ui: ReactNode, options = {}) => {
-  const store = makeStore()
-
-  return render(<Provider store={store}>{ui}</Provider>, options)
-}
 
 class ResizeObserverMock implements ResizeObserver {
   constructor(callback: ResizeObserverCallback) {}
