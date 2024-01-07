@@ -2,7 +2,6 @@
 
 import HomeMainFeatureSection from './shared/home-main-feature-section/HomeMainFeatureSection'
 import HomeWidgetSection from './shared/home-widget-section/HomeWidgetSection'
-import { decrement, increment, setValue } from './lib/features/testReducer'
 import HomeInfoCard from './shared/home-info-card/HomeInfoCard'
 import { useDispatch, useSelector } from 'react-redux'
 import { infoCard } from './utils/data/mock-data'

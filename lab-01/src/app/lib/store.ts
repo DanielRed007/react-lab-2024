@@ -1,3 +1,4 @@
+import reservationsReducer from './features/reservationsReducer'
 import homeWidgetsReducer from './features/homeWidgetsReducer'
 import { configureStore } from '@reduxjs/toolkit'
 
@@ -5,6 +6,7 @@ export const makeStore = () => {
   return configureStore({
     reducer: {
       homeWidgets: homeWidgetsReducer,
+      reservations: reservationsReducer,
     },
     devTools: process.env.NODE_ENV !== 'production',
   })
