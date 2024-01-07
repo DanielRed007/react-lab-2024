@@ -26,3 +26,15 @@ export interface IFeatureTitleSection {
   description: string
   icon: React.ReactNode
 }
+
+export interface IUser {
+  name: string
+  username: string
+  email: string
+}
+
+export interface ILocation {
+  name: string
+  city: string
+  active: boolean
+}
