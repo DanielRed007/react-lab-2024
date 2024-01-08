@@ -18,8 +18,18 @@ export default function Page() {
 
   const [selectedLocation, setSelectedLocation] = useState('')
 
-  const handleLocationChange = (event: any) => {
-    setSelectedLocation(event.target.value)
+  const [selectedLocations, setSelectedLocations] = useState<string[]>([])
+
+  const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedLocation = event.target.value
+
+    if (selectedLocations.includes(selectedLocation)) {
+      setSelectedLocations(
+        selectedLocations.filter((loc) => loc !== selectedLocation),
+      )
+    } else {
+      setSelectedLocations([...selectedLocations, selectedLocation])
+    }
   }
 
   useEffect(() => {
@@ -49,31 +59,13 @@ export default function Page() {
                 <p className="text-blue-500 mb-2 text-xl">
                   <strong>Choose your Location</strong>
                 </p>
-                {/* <label className="flex items-center mb-2 text-gray-900">
-                  <input
-                    type="radio"
-                    value="option1"
-                    checked={selectedLocation === 'option1'}
-                    onChange={handleLocationChange}
-                    className="mr-2"
-                  />
-                  Option 1
-                </label>
-                <label className="flex items-center text-gray-900">
-                  <input
-                    type="radio"
-                    value="option2"
-                    checked={selectedLocation === 'option2'}
-                    onChange={handleLocationChange}
-                    className="mr-2"
-                  />
-                  Option 2
-                </label> */}
-                {locations.map((location, index) => (
+                {locations?.map((location, index) => (
                   <RadioBox
+                    key={index}
+                    value={location.name}
                     label={location.name}
-                    checked={isChecked}
-                    onChange={handleLocationChange}
+                    checked={selectedLocations.includes(location.name)}
+                    onChange={(e) => handleLocationChange(e)}
                   />
                 ))}
               </div>
