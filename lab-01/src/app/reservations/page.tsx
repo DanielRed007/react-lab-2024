@@ -2,6 +2,7 @@
 
 import { fetchUser, fetchLocations } from '../lib/features/reservationsReducer'
 import { ILocation, IUser } from '../utils/interface/interfaces'
+import ToggleSwitch from '../shared/toggle-switch/ToggleSwitch'
 import { useDispatch, useSelector } from 'react-redux'
 import RadioBox from '../shared/radio-box/RadioBox'
 import Header from '../shared/header/Header'
@@ -16,6 +17,11 @@ export default function Page() {
   )
 
   const [location, setLocation] = useState('')
+  const [enabled, setEnabled] = useState(false)
+
+  const handleToggle = (e: any) => {
+    setEnabled(!enabled)
+  }
 
   const handleLocationChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -67,7 +73,14 @@ export default function Page() {
                 ))}
               </div>
               <div className="flex-1 rounded-md bg-white">
-                <p className="text-white">Inner Container 2</p>
+                <div className="flex justify-center">
+                  <div className="py-4 px-4 flex align-items">
+                    <p className="text-blue-950 ml-4">
+                      <strong>Want to select parking?</strong>
+                    </p>
+                    <ToggleSwitch enabled={enabled} onChange={handleToggle} />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="bg-gray-300 p-4 mb-4 h-96 w-full">Item 2</div>
