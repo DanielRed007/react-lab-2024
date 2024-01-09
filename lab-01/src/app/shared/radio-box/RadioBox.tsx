@@ -14,7 +14,7 @@ const RadioBox: React.FC<IRadioBoxProps> = ({
   value,
 }) => {
   return (
-    <label className="flex items-center mb-2 text-gray-900">
+    <label className="flex items-left mb-2 text-gray-900">
       <input
         type="radio"
         value={value}

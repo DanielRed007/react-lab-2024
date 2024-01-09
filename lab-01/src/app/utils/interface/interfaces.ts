@@ -36,5 +36,5 @@ export interface IUser {
 export interface ILocation {
   name: string
   city: string
-  active: boolean
+  default: boolean
 }
