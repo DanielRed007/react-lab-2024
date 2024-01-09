@@ -25,7 +25,7 @@ export const fetchUser = createAsyncThunk<FetchUserPayload>(
     const user: IUser = {
       name: 'Septimus',
       username: 'Gladius',
-      email: 'septimus.scipium@aterna.com',
+      email: 'septimus.scipium@aeterna.com',
     }
     return { user }
   },
@@ -38,12 +38,12 @@ export const fetchLocations = createAsyncThunk<FetchLocationsPayload>(
       {
         name: 'Palatinum',
         city: 'Roma',
-        active: true,
+        default: true,
       },
       {
         name: 'Agora',
         city: 'Atenas',
-        active: true,
+        default: false,
       },
     ]
     return { locations }
