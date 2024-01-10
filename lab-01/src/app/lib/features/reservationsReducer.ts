@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
-import { ILocation, IUser } from '@/app/utils/interface/interfaces'
+import { ILocation, IUser } from '../../utils/interface/interfaces'
+import { locations, user } from '../../utils/data/mock-data'
 
 interface ReservationsState {
   user: IUser | null
@@ -22,11 +23,6 @@ const initialState: ReservationsState = {
 export const fetchUser = createAsyncThunk<FetchUserPayload>(
   'user/fetch',
   async () => {
-    const user: IUser = {
-      name: 'Septimus',
-      username: 'Gladius',
-      email: 'septimus.scipium@aeterna.com',
-    }
     return { user }
   },
 )
@@ -34,18 +30,6 @@ export const fetchUser = createAsyncThunk<FetchUserPayload>(
 export const fetchLocations = createAsyncThunk<FetchLocationsPayload>(
   'locations/fetch',
   async () => {
-    const locations: ILocation[] = [
-      {
-        name: 'Palatinum',
-        city: 'Roma',
-        default: true,
-      },
-      {
-        name: 'Agora',
-        city: 'Atenas',
-        default: false,
-      },
-    ]
     return { locations }
   },
 )
