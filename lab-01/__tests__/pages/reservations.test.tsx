@@ -1,7 +1,20 @@
+import { act, fireEvent, screen } from '@testing-library/react'
 import { renderComponent } from '../testUtils/renderComponent'
 import Page from '../../src/app/reservations/page'
-import { screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
+
+const mockLocations = [
+  {
+    name: 'MockedLocation1',
+    city: 'MockedCity1',
+    default: true,
+  },
+  {
+    name: 'MockedLocation2',
+    city: 'MockedCity2',
+    default: false,
+  },
+]
 
 describe('Reservations Page Test Suite', () => {
   it('renders a heading', () => {
@@ -17,8 +30,6 @@ describe('Reservations Page Test Suite', () => {
   it('renders a reservations section', () => {
     renderComponent(<Page />)
 
-    screen.debug(undefined, 2000)
-
     // Welcome text is rendered
     const welcomeText = screen.getByText('Welcome')
     expect(welcomeText).toBeInTheDocument()
@@ -28,5 +39,39 @@ describe('Reservations Page Test Suite', () => {
     // parking text is rendered
     const parkingText = screen.getByText('Want to select parking?')
     expect(parkingText).toBeInTheDocument()
+  })
+
+  it('changes Location when user switches Radio box', async () => {
+    await act(() => {
+      renderComponent(<Page />, {
+        initialState: { reservations: { locations: mockLocations } },
+      })
+    })
+
+    // location text is rendered
+    const locationText = screen.getByText('Choose your Location')
+    expect(locationText).toBeInTheDocument()
+
+    // radio input values
+    const romaRadioInput = screen.getByLabelText(
+      'Palatinum',
+    ) as HTMLInputElement
+    const atenasRadioInput = screen.getByLabelText('Agora') as HTMLInputElement
+
+    // values must be rendered
+    expect(romaRadioInput).toBeInTheDocument()
+    expect(atenasRadioInput).toBeInTheDocument()
+
+    // Click on first value
+    fireEvent.click(romaRadioInput)
+
+    expect(romaRadioInput).toBeChecked()
+    expect(atenasRadioInput).not.toBeChecked()
+
+    // Click on second value, first must be unchecked
+    fireEvent.click(atenasRadioInput)
+
+    expect(romaRadioInput).not.toBeChecked()
+    expect(atenasRadioInput).toBeChecked()
   })
 })
