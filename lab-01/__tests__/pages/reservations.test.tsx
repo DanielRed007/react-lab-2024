@@ -74,4 +74,28 @@ describe('Reservations Page Test Suite', () => {
     expect(romaRadioInput).not.toBeChecked()
     expect(atenasRadioInput).toBeChecked()
   })
+
+  it('Switches a Toggle button to optionally render an Alert component', async () => {
+    await act(() => {
+      renderComponent(<Page />, {
+        initialState: { reservations: { locations: mockLocations } },
+      })
+    })
+
+    // parking text is rendered
+    const parkingText = screen.getByText('Want to select parking?')
+    expect(parkingText).toBeInTheDocument()
+
+    // Alert title must be blue
+    const alertBlue = screen.getByText('Blue Alert is enabled')
+    expect(alertBlue).toBeInTheDocument()
+
+    // Toggle button
+    const toggleButton = screen.getByTestId('toggleSwitch')
+    fireEvent.click(toggleButton)
+
+    // Alert must be green
+    const alertGreen = screen.getByText('Green Alert is enabled')
+    expect(alertGreen).toBeInTheDocument()
+  })
 })

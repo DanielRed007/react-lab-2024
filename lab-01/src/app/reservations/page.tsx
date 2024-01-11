@@ -8,6 +8,7 @@ import RadioBox from '../shared/radio-box/RadioBox'
 import Header from '../shared/header/Header'
 import { useEffect, useState } from 'react'
 import { AppDispatch } from '../lib/store'
+import Alert from '../shared/alert/Alert'
 
 export default function Page() {
   const dispatch = useDispatch<AppDispatch>()
@@ -72,18 +73,35 @@ export default function Page() {
                   />
                 ))}
               </div>
-              <div className="flex-1 rounded-md bg-white">
-                <div className="flex justify-center">
+              <div className="flex align-items justify-center flex-direction-column rounded-md bg-white">
+                <div className="">
                   <div className="py-4 px-4 flex align-items">
                     <p className="text-blue-950 ml-4">
                       <strong>Want to select parking?</strong>
                     </p>
-                    <ToggleSwitch enabled={enabled} onChange={handleToggle} />
+                    <ToggleSwitch
+                      enabled={enabled}
+                      onChange={handleToggle}
+                      testId="toggleSwitch"
+                    />
                   </div>
+                  {enabled ? (
+                    <Alert
+                      color="green"
+                      title="Enabled"
+                      content="Green Alert is enabled"
+                    />
+                  ) : (
+                    <Alert
+                      color="blue"
+                      title="Not Enabled"
+                      content="Blue Alert is enabled"
+                    />
+                  )}
                 </div>
               </div>
             </div>
-            <div className="bg-gray-300 p-4 mb-4 h-96 w-full">Item 2</div>
+            <div className="bg-gray-300 p-4 mb-4 h-96 w-full"></div>
             <div className="bg-gray-300 p-4 mb-4 h-96 w-full">Item 3</div>
           </div>
         </div>
