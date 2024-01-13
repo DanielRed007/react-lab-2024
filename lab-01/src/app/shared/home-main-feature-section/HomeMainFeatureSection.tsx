@@ -1,5 +1,5 @@
 import { homeFeatureCards, homeTitleSection } from '../../utils/data/mock-data'
-import { IFeatureCard } from '@/app/utils/interface/interfaces'
+import { IFeatureCard } from '../../utils/interface/interfaces'
 import FeatureTitleSection from './FeatureTitleSection'
 import FeatureCard from './FeatureCard'
 

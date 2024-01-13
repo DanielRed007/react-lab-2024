@@ -15,6 +15,10 @@ interface FetchLocationsPayload {
   locations: ILocation[]
 }
 
+interface SendReservationPayload {
+  reservation: any
+}
+
 const initialState: ReservationsState = {
   user: null,
   locations: null,
@@ -34,6 +38,13 @@ export const fetchLocations = createAsyncThunk<FetchLocationsPayload>(
   },
 )
 
+export const sendReservation = createAsyncThunk<SendReservationPayload, any>(
+  'reservations/sendReservation',
+  async (reservation) => {
+    return { reservation }
+  },
+)
+
 const reservationsSlice = createSlice({
   name: 'reservations',
   initialState,
@@ -44,13 +55,22 @@ const reservationsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchUser.fulfilled, (state, action: PayloadAction<any>) => {
-        state.user = action.payload.user
-      })
+      .addCase(
+        fetchUser.fulfilled,
+        (state, action: PayloadAction<FetchUserPayload>) => {
+          state.user = action.payload.user
+        },
+      )
       .addCase(
         fetchLocations.fulfilled,
-        (state, action: PayloadAction<any>) => {
+        (state, action: PayloadAction<FetchLocationsPayload>) => {
           state.locations = action.payload.locations
+        },
+      )
+      .addCase(
+        sendReservation.fulfilled,
+        (state, action: PayloadAction<SendReservationPayload>) => {
+          console.log('Reservation sent:', action.payload.reservation)
         },
       )
   },
