@@ -5,6 +5,7 @@ import {
   ILocation,
   INavbarRoute,
   IUser,
+  IWorkModality,
 } from '../interface/interfaces'
 import { CalendarIcon, CodeIcon, NextJSIcon } from '../icons/icons'
 
@@ -72,6 +73,18 @@ export const locations: ILocation[] = [
     name: 'Agora',
     city: 'Atenas',
     default: false,
+  },
+]
+
+export const workModalities: IWorkModality[] = [
+  {
+    name: 'Full Remote',
+  },
+  {
+    name: 'Hybrid',
+  },
+  {
+    name: 'Full Presense',
   },
 ]
 

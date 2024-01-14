@@ -1,5 +1,5 @@
-import { sendReservation } from '@/app/lib/features/reservationsReducer'
-import { act, fireEvent, screen } from '@testing-library/react'
+import { sendReservation } from '../../src/app/lib/features/reservations/reservationsThunks'
+import { act, fireEvent, screen, waitFor } from '@testing-library/react'
 import { renderComponent } from '../testUtils/renderComponent'
 import userEvent from '@testing-library/user-event'
 import Page from '../../src/app/reservations/page'
@@ -109,6 +109,8 @@ describe('Reservations Page Test Suite', () => {
     userEvent.click(toggleButton)
 
     // Get vehicle plate form
+    await waitFor(() => screen.getByTestId('vehicle-plate'))
+
     const vehiclePlateForm = screen.getByTestId('vehicle-plate')
 
     // Type a vehicle plate

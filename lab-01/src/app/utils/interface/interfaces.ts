@@ -38,3 +38,7 @@ export interface ILocation {
   city: string
   default: boolean
 }
+
+export interface IWorkModality {
+  name: string
+}
