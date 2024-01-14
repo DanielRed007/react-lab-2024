@@ -1,11 +1,12 @@
 'use client'
 
 import {
+  sendReservation,
   fetchUser,
   fetchLocations,
-  sendReservation,
-} from '../lib/features/reservationsReducer'
-import { ILocation, IUser } from '../utils/interface/interfaces'
+  fetchWorkModalities,
+} from '../lib/features/reservations/reservationsThunks'
+import { ILocation, IUser, IWorkModality } from '../utils/interface/interfaces'
 import ToggleSwitch from '../shared/toggle-switch/ToggleSwitch'
 import ParkingSettings from './components/ParkingSettings'
 import { ChangeEvent, useEffect, useState } from 'react'
@@ -20,8 +21,12 @@ export default function Page() {
   const locations: ILocation[] = useSelector(
     (state: any) => state.reservations.locations,
   )
+  const workModalities: IWorkModality[] = useSelector(
+    (state: any) => state.reservations.workModalities,
+  )
 
   const [location, setLocation] = useState('')
+  const [workModality, setWorkModality] = useState('')
   const [vehicleValue, setVehicleValue] = useState('')
   const [parkingEnabled, setParkingEnabled] = useState(false)
 
@@ -47,7 +52,18 @@ export default function Page() {
     setFormData((prevData) => ({ ...prevData, location: selectedLocation }))
   }
 
+  const handleWorkModalityChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const selectedWorkModality = event.target.value
+    setWorkModality(selectedWorkModality)
+  }
+
   const isLocationChecked = (checked: string, current: string): boolean => {
+    return checked === current
+  }
+
+  const isWorkModalityChecked = (checked: string, current: string): boolean => {
     return checked === current
   }
 
@@ -70,6 +86,7 @@ export default function Page() {
   useEffect(() => {
     dispatch(fetchUser())
     dispatch(fetchLocations())
+    dispatch(fetchWorkModalities())
   }, [dispatch])
 
   return (
@@ -132,7 +149,23 @@ export default function Page() {
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-300 p-4 mb-4 h-96 w-full"></div>
+              <div className="bg-gray-300 p-4 mb-4 rounded-md h-96 w-full flex flex-col">
+                <div className="rounded-md bg-white mb-4 p-4 flex flex-col items-center">
+                  <p className="text-blue-500 mb-2 text-xl text-center">
+                    <strong>Choose your work modality</strong>
+                  </p>
+                  {workModalities?.map((mod, index) => (
+                    <RadioBox
+                      key={index}
+                      value={mod.name}
+                      label={mod.name}
+                      checked={isWorkModalityChecked(workModality, mod.name)}
+                      onChange={(e) => handleWorkModalityChange(e)}
+                    />
+                  ))}
+                </div>
+                <div className="flex align-items justify-center flex-direction-column rounded-md bg-white"></div>
+              </div>
               <div className="bg-gray-300 p-4 mb-4 h-96 w-full">
                 <button type="submit">Submit</button>
               </div>

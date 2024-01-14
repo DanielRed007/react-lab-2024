@@ -1,14 +1,14 @@
 import {
+  toggleModal,
+  openModal,
+  closeModal,
+} from '../../lib/features/homeWidgets/homeWidgetsReducer'
+import {
   CalculatorIcon,
   CalendarIcon,
   NextJSIcon,
   PaymentIcon,
 } from '../../utils/icons/icons'
-import {
-  toggleModal,
-  openModal,
-  closeModal,
-} from '../../lib/features/homeWidgetsReducer'
 import { Dialog, Transition } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import IconModal from '../icon-modal/IconModal'

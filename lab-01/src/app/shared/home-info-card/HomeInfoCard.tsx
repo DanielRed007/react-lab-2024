@@ -1,6 +1,6 @@
 'use client'
 
-import { ICardInfo, IHomeInfoCard } from '@/app/utils/interface/interfaces'
+import { ICardInfo, IHomeInfoCard } from '../../utils/interface/interfaces'
 import { useRouter } from 'next/navigation'
 
 const HomeInfoCard = ({ info }: IHomeInfoCard) => {

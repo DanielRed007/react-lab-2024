@@ -1,5 +1,5 @@
-import reservationsReducer from './features/reservationsReducer'
-import homeWidgetsReducer from './features/homeWidgetsReducer'
+import reservationsReducer from './features/reservations/reservationsReducer'
+import homeWidgetsReducer from './features/homeWidgets/homeWidgetsReducer'
 import { configureStore } from '@reduxjs/toolkit'
 
 export const makeStore = () => {
