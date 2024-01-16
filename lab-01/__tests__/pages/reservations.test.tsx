@@ -118,7 +118,7 @@ describe('Reservations Page Test Suite', () => {
     fireEvent.click(screen.getByText('Submit'))
 
     // Form must have been submitted
-    expect(sendReservation).toHaveBeenCalledWith({
+    expect(send).toHaveBeenCalledWith({
       location: 'Roma',
       parkingEnabled: true,
       vehiclePlate: 'XS 22 3E',

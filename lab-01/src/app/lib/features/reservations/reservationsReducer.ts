@@ -44,7 +44,7 @@ const reservationsSlice = createSlice({
       .addCase(
         sendReservation.fulfilled,
         (state, action: PayloadAction<SendReservationPayload>) => {
-          console.log('Reservation sent:', action.payload.reservation)
+          state.reservation = action.payload.reservation
         },
       )
   },

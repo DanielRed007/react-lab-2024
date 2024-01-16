@@ -84,7 +84,7 @@ export const workModalities: IWorkModality[] = [
     name: 'Hybrid',
   },
   {
-    name: 'Full Presense',
+    name: 'Full Presence',
   },
 ]
 

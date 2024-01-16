@@ -7,9 +7,9 @@ import {
   fetchWorkModalities,
 } from '../lib/features/reservations/reservationsThunks'
 import { ILocation, IUser, IWorkModality } from '../utils/interface/interfaces'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import ToggleSwitch from '../shared/toggle-switch/ToggleSwitch'
 import ParkingSettings from './components/ParkingSettings'
-import { ChangeEvent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import RadioBox from '../shared/radio-box/RadioBox'
 import Header from '../shared/header/Header'
@@ -34,6 +34,7 @@ export default function Page() {
     location: '',
     parkingEnabled: false,
     vehiclePlate: '',
+    workModality: '',
   })
 
   const handleToggle = () => {
@@ -44,19 +45,16 @@ export default function Page() {
     }))
   }
 
-  const handleLocationChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ): void => {
+  const handleLocationChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const selectedLocation = event.target.value
     setLocation(selectedLocation)
     setFormData((prevData) => ({ ...prevData, location: selectedLocation }))
   }
 
-  const handleWorkModalityChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
+  const handleWorkModalityChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedWorkModality = event.target.value
     setWorkModality(selectedWorkModality)
+    setFormData((prevData) => ({ ...prevData, workModality: workModality }))
   }
 
   const isLocationChecked = (checked: string, current: string): boolean => {
@@ -67,7 +65,7 @@ export default function Page() {
     return checked === current
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     dispatch(sendReservation(formData))
   }
