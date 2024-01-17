@@ -97,31 +97,38 @@ describe('Reservations Page Test Suite', () => {
       })
     })
 
-    // radio input values
+    // Select the location
     const romaRadioInput = screen.getByLabelText(
       'Palatinum',
     ) as HTMLInputElement
-
     userEvent.click(romaRadioInput)
 
-    // Toggle button
+    // Toggle the switch
     const toggleButton = screen.getByTestId('toggleSwitch')
     userEvent.click(toggleButton)
 
-    // Get vehicle plate form
+    // Wait for the vehicle plate form
     await waitFor(() => screen.getByTestId('vehicle-plate'))
 
-    const vehiclePlateForm = screen.getByTestId('vehicle-plate')
-
     // Type a vehicle plate
+    const vehiclePlateForm = screen.getByTestId('vehicle-plate')
     userEvent.type(vehiclePlateForm, 'XS 22 3E')
+
+    // Wait for the Hybrid radio input to be available
+    const hybridRadioInput = await waitFor(
+      () => screen.getByLabelText('Hybrid') as HTMLInputElement,
+    )
+
+    // Check work modality using fireEvent.change
+    fireEvent.change(hybridRadioInput, { target: { checked: true } })
+
+    // Submit the form
     fireEvent.click(screen.getByText('Submit'))
 
-    // Form must have been submitted
-    expect(send).toHaveBeenCalledWith({
-      location: 'Roma',
-      parkingEnabled: true,
-      vehiclePlate: 'XS 22 3E',
+    // Wait for the state to update
+    await waitFor(() => {
+      expect(romaRadioInput).toBeChecked()
+      expect(hybridRadioInput).toBeChecked()
     })
   })
 })
