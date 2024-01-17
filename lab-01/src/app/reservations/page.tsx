@@ -12,6 +12,7 @@ import ToggleSwitch from '../shared/toggle-switch/ToggleSwitch'
 import ParkingSettings from './components/ParkingSettings'
 import { useDispatch, useSelector } from 'react-redux'
 import RadioBox from '../shared/radio-box/RadioBox'
+import Dropdown from '../shared/dropdown/Dropdown'
 import Header from '../shared/header/Header'
 import { AppDispatch } from '../lib/store'
 
@@ -162,7 +163,9 @@ export default function Page() {
                     />
                   ))}
                 </div>
-                <div className="flex align-items justify-center flex-direction-column rounded-md bg-white"></div>
+                <div className="flex align-items justify-center flex-direction-column rounded-md bg-white">
+                  <Dropdown />
+                </div>
               </div>
               <div className="bg-gray-300 p-4 mb-4 h-96 w-full">
                 <button type="submit">Submit</button>
