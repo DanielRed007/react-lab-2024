@@ -131,4 +131,23 @@ describe('Reservations Page Test Suite', () => {
       expect(hybridRadioInput).toBeChecked()
     })
   })
+
+  it('User can select the otions of the desk dropdown', async () => {
+    // Asyncronous rendering the component
+    await act(() => {
+      renderComponent(<Page />, {
+        initialState: { reservations: { locations: mockLocations } },
+      })
+    })
+    // Getting the select button by test id
+    const deskSelectButton = screen.getByTestId('desk-select')
+    // Clicking the element
+    await waitFor(() => userEvent.click(deskSelectButton))
+
+    const selectedListItem = screen.getByRole('option', { name: /1/ })
+    // Expects to have the right text content
+    expect(selectedListItem).toHaveTextContent('1')
+
+    await waitFor(() => {})
+  })
 })

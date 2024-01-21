@@ -12,6 +12,7 @@ import ToggleSwitch from '../shared/toggle-switch/ToggleSwitch'
 import ParkingSettings from './components/ParkingSettings'
 import { useDispatch, useSelector } from 'react-redux'
 import RadioBox from '../shared/radio-box/RadioBox'
+import { mockDesks } from '../utils/data/mock-data'
 import Dropdown from '../shared/dropdown/Dropdown'
 import Header from '../shared/header/Header'
 import { AppDispatch } from '../lib/store'
@@ -30,12 +31,14 @@ export default function Page() {
   const [workModality, setWorkModality] = useState('')
   const [vehicleValue, setVehicleValue] = useState('')
   const [parkingEnabled, setParkingEnabled] = useState(false)
+  const [selectedFloor, setSelectedFloor] = useState(mockDesks[0])
 
   const [formData, setFormData] = useState({
     location: '',
     parkingEnabled: false,
     vehiclePlate: '',
     workModality: '',
+    desk: '',
   })
 
   const handleToggle = () => {
@@ -79,6 +82,16 @@ export default function Page() {
     setFormData((prevData) => ({
       ...prevData,
       vehiclePlate: newValue,
+    }))
+  }
+
+  const handleFloorChange = (e: any) => {
+    const newDesk = e.name
+    setSelectedFloor(e)
+
+    setFormData((prevData) => ({
+      ...prevData,
+      desk: newDesk,
     }))
   }
 
@@ -163,12 +176,30 @@ export default function Page() {
                     />
                   ))}
                 </div>
-                <div className="flex align-items justify-center flex-direction-column rounded-md bg-white">
-                  <Dropdown />
+                <div className="flex align-items justify-center flex-direction-column rounded-md bg-white h-36 flex flex-col items-center">
+                  <p className="text-blue-500 mb-2 text-xl text-center">
+                    <strong>Choose your desk</strong>
+                  </p>
+                  <Dropdown
+                    selected={selectedFloor}
+                    onChange={handleFloorChange}
+                    options={mockDesks}
+                    testId={'desk-select'}
+                  />
                 </div>
               </div>
               <div className="bg-gray-300 p-4 mb-4 h-96 w-full">
-                <button type="submit">Submit</button>
+                <div className="flex align-items justify-center flex-direction-column rounded-md bg-white h-36 flex flex-col items-center">
+                  <p className="text-blue-500 mb-2 text-xl text-center">
+                    <strong>Hop On!</strong>
+                  </p>
+                  <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </div>
               </div>
             </div>
           </div>
