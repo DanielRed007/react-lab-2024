@@ -42,3 +42,11 @@ export interface ILocation {
 export interface IWorkModality {
   name: string
 }
+
+export interface IReservation {
+  desk: string
+  location: string
+  parkingEnabled: boolean
+  vehiclePlate: string
+  workModality: string
+}

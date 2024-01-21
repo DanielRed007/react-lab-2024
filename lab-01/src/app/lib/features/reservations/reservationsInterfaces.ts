@@ -2,6 +2,7 @@ import {
   IUser,
   ILocation,
   IWorkModality,
+  IReservation,
 } from '../../../utils/interface/interfaces'
 
 export interface FetchUserPayload {
@@ -17,5 +18,5 @@ export interface FetchWorkModalitiesPayload {
 }
 
 export interface SendReservationPayload {
-  reservation: any
+  reservation: IReservation
 }
