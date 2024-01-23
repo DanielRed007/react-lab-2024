@@ -14,7 +14,7 @@ const Table = ({ dataLabel, onClickTitle, data }: ITable) => {
           {dataLabel.map((label: ILabel, idx: number) => (
             <th
               onClick={(event: any) => onClickTitle(event, label.name)}
-              key={idx}
+              key={`${idx + label.name}`}
               className="px-4 py-2 text-gray-950"
             >
               {label.name}
@@ -25,22 +25,19 @@ const Table = ({ dataLabel, onClickTitle, data }: ITable) => {
       <tbody>
         {data
           ? data.map((row, index) => (
-              <tr className="bg-gray-100 min-w-full w-full bg-white border border-gray-200">
-                <td key={index} className="border px-4 py-2 text-gray-950">
-                  {row.title}
-                </td>
-                <td key={index} className="border px-4 py-2 text-gray-950">
-                  {row.author}
-                </td>
-                <td key={index} className="border px-4 py-2 text-gray-950">
+              <tr
+                key={`${index + row.title}`}
+                className="bg-gray-100 min-w-full w-full bg-white border border-gray-200"
+              >
+                <td className="border px-4 py-2 text-gray-950">{row.title}</td>
+                <td className="border px-4 py-2 text-gray-950">{row.author}</td>
+                <td className="border px-4 py-2 text-gray-950">
                   {row.description}
                 </td>
-                <td key={index} className="border px-4 py-2 text-gray-950">
+                <td className="border px-4 py-2 text-gray-950">
                   {row.publishedBy}
                 </td>
-                <td key={index} className="border px-4 py-2 text-gray-950">
-                  {row.year}
-                </td>
+                <td className="border px-4 py-2 text-gray-950">{row.year}</td>
               </tr>
             ))
           : null}

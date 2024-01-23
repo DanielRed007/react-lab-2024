@@ -28,7 +28,7 @@ export default function Page() {
   )
 
   const [location, setLocation] = useState('')
-  const [workModality, setWorkModality] = useState('')
+  const [workModality, setWorkModality] = useState('Full Presence')
   const [vehicleValue, setVehicleValue] = useState('')
   const [parkingEnabled, setParkingEnabled] = useState(false)
   const [selectedFloor, setSelectedFloor] = useState(mockDesks[0])
@@ -58,7 +58,10 @@ export default function Page() {
   const handleWorkModalityChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedWorkModality = event.target.value
     setWorkModality(selectedWorkModality)
-    setFormData((prevData) => ({ ...prevData, workModality: workModality }))
+    setFormData((prevData) => ({
+      ...prevData,
+      workModality: selectedWorkModality,
+    }))
   }
 
   const isLocationChecked = (checked: string, current: string): boolean => {
