@@ -50,3 +50,7 @@ export interface IReservation {
   vehiclePlate: string
   workModality: string
 }
+
+export interface ILabel {
+  name: string
+}
