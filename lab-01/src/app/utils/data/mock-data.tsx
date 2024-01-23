@@ -2,6 +2,7 @@ import {
   ICardInfo,
   IFeatureCard,
   IFeatureTitleSection,
+  ILabel,
   ILocation,
   INavbarRoute,
   IUser,
@@ -102,4 +103,50 @@ export const mockDesks = [
   { id: 5, name: '5', value: '5' },
   { id: 6, name: '6', value: '6' },
   { id: 7, name: '7', value: '7' },
+]
+
+export const reportLabels: ILabel[] = [
+  { name: 'Title' },
+  { name: 'Author' },
+  { name: 'Description' },
+  { name: 'Published By' },
+  { name: 'Year' },
+]
+
+export const reportsData = [
+  {
+    title: "Childhood's End",
+    author: 'Arthur Clarke',
+    description: 'Mankind facing its ultimate destiny',
+    publishedBy: 'Dark Wing Editions',
+    year: 1956,
+  },
+  {
+    title: 'Ubik',
+    author: 'Phillip Dick',
+    description: 'Comedy and Dark Fantasy',
+    publishedBy: 'Electric Sheep Editions',
+    year: 1967,
+  },
+  {
+    title: "Childhood's End",
+    author: 'Arthur Clarke',
+    description: 'Mankind facing its ultimate destiny',
+    publishedBy: 'Dark Wing Editions',
+    year: 1956,
+  },
+  {
+    title: "Childhood's End",
+    author: 'Arthur Clarke',
+    description: 'Mankind facing its ultimate destiny',
+    publishedBy: 'Dark Wing Editions',
+    year: 1956,
+  },
+  {
+    title: "Childhood's End",
+    author: 'Arthur Clarke',
+    description: 'Mankind facing its ultimate destiny',
+    publishedBy: 'Dark Wing Editions',
+    year: 1956,
+  },
 ]
