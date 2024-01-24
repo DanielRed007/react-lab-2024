@@ -24,7 +24,7 @@ export default function Page() {
     <>
       <Header title="Reports" />
 
-      <div className="mx-auto py-9 max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex flex-col bg-gray-100">
+      <div className="drop-shadow rounded-md mx-auto py-9 max-w-7xl mt-24 px-4 py-6 sm:px-6 lg:px-8 flex flex-col bg-gray-100">
         {dataTable ? (
           <Table
             dataLabel={dataTable.labels}

@@ -109,9 +109,9 @@ export default function Page() {
       <Header title="Reservations" />
 
       <form onSubmit={handleSubmit}>
-        <div className="bg-gray-100">
-          <div className="mx-auto py-9 max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex flex-col bg-gray-100">
-            <div className="bg-gray-300 rounded-md p-4 mb-4 h-44 text-center">
+        <div className="bg-white">
+          <div className="mx-auto py-9 max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex flex-col bg-white">
+            <div className="drop-shadow bg-gray-300 rounded-md p-4 mb-4 h-44 text-center">
               <div className="text-5xl text-blue-700 py-6">
                 <strong>Welcome</strong> {user?.name ? user?.name : 'No User'} !
               </div>
@@ -122,7 +122,7 @@ export default function Page() {
             </div>
 
             <div className="grid grid-cols-3 gap-4">
-              <div className="bg-gray-300 p-4 mb-4 rounded-md h-96 w-full flex flex-col">
+              <div className="drop-shadow bg-gray-300 p-4 mb-4 rounded-md h-96 w-full flex flex-col">
                 <div className="rounded-md bg-white mb-4 p-4 flex flex-col items-center">
                   <p className="text-blue-500 mb-2 text-xl text-center">
                     <strong>Choose your Location</strong>
@@ -164,7 +164,7 @@ export default function Page() {
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-300 p-4 mb-4 rounded-md h-96 w-full flex flex-col">
+              <div className="drop-shadow bg-gray-300 p-4 mb-4 rounded-md h-96 w-full flex flex-col">
                 <div className="rounded-md bg-white mb-4 p-4 flex flex-col items-center">
                   <p className="text-blue-500 mb-2 text-xl text-center">
                     <strong>Choose your work modality</strong>
@@ -191,7 +191,7 @@ export default function Page() {
                   />
                 </div>
               </div>
-              <div className="bg-gray-300 p-4 mb-4 h-96 w-full">
+              <div className="drop-shadow bg-gray-300 rounded-md p-4 mb-4 h-96 w-full">
                 <div className="flex align-items justify-center flex-direction-column rounded-md bg-white h-36 flex flex-col items-center">
                   <p className="text-blue-500 mb-2 text-xl text-center">
                     <strong>Hop On!</strong>
