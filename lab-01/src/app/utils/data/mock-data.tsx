@@ -1,5 +1,6 @@
 import {
   ICardInfo,
+  IContactCardSmall,
   IFeatureCard,
   IFeatureTitleSection,
   ILabel,
@@ -148,5 +149,44 @@ export const reportsData = [
     description: 'Mankind facing its ultimate destiny',
     publishedBy: 'Dark Wing Editions',
     year: 1956,
+  },
+]
+
+export const contactCardSmallData: IContactCardSmall[] = [
+  {
+    title: 'Title 1',
+    subtitle: 'This is a simple rounded card using Tailwind CSS.',
+    imageUrl: 'https://via.placeholder.com/150',
+    chipText: 'light',
+  },
+  {
+    title: 'Title 1',
+    subtitle: 'This is a simple rounded card using Tailwind CSS.',
+    imageUrl: 'https://via.placeholder.com/150',
+    chipText: 'light',
+  },
+  {
+    title: 'Title 1',
+    subtitle: 'This is a simple rounded card using Tailwind CSS.',
+    imageUrl: 'https://via.placeholder.com/150',
+    chipText: 'light',
+  },
+  {
+    title: 'Title 1',
+    subtitle: 'This is a simple rounded card using Tailwind CSS.',
+    imageUrl: 'https://via.placeholder.com/150',
+    chipText: 'light',
+  },
+  {
+    title: 'Title 1',
+    subtitle: 'This is a simple rounded card using Tailwind CSS.',
+    imageUrl: 'https://via.placeholder.com/150',
+    chipText: 'light',
+  },
+  {
+    title: 'Title 1',
+    subtitle: 'This is a simple rounded card using Tailwind CSS.',
+    imageUrl: 'https://via.placeholder.com/150',
+    chipText: 'light',
   },
 ]

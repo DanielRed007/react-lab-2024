@@ -24,7 +24,6 @@ describe('Reservations Page Test Suite', () => {
 
     const heading = screen.getByText('Reservations')
 
-    screen.debug(undefined, 20000)
     // Header is rendered
     expect(heading).toBeInTheDocument()
     expect(heading).toHaveTextContent('Reservations')
