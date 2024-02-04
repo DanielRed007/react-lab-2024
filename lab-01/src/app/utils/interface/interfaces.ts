@@ -54,3 +54,11 @@ export interface IReservation {
 export interface ILabel {
   name: string
 }
+
+export interface IContactCardSmall {
+  title: string
+  subtitle: string
+  imageUrl?: string
+  chipText: string
+  onClick?: (value: any) => void
+}
