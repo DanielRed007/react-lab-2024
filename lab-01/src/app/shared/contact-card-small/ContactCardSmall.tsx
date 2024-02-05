@@ -1,4 +1,7 @@
+'use client'
+
 import { IContactCardSmall } from '@/app/utils/interface/interfaces'
+import { EmailIcon, MobileIcon } from '@/app/utils/icons/icons'
 import React, { FC } from 'react'
 
 const ContactCardSmall: FC<IContactCardSmall> = ({
@@ -6,6 +9,10 @@ const ContactCardSmall: FC<IContactCardSmall> = ({
   subtitle,
   imageUrl,
   chipText,
+  contactEmail,
+  contactMobile,
+  onClickEmail,
+  onClickMobile,
 }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md m-2">
@@ -38,12 +45,23 @@ const ContactCardSmall: FC<IContactCardSmall> = ({
 
       <hr className="my-4 border-t-0.5 border-gray-300" />
 
-      <div className="flex flex-row justify-between space-x-2">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-full">
-          Icon 1
+      <div className="flex flex-row justify-around space-x-2">
+        <button
+          onClick={onClickEmail}
+          className="flex flex-row justify-between items-center text-gray-700 px-4 py-2 rounded-full transition-opacity transition-bg hover:opacity-95 hover:bg-blue-100"
+        >
+          <EmailIcon customClass="h-5 w-5 mr-3" testId="contact-mail-icon" />
+          Email
         </button>
-        <button className="bg-green-500 text-white px-4 py-2 rounded-full">
-          Icon 2
+
+        <div className="border-l border-gray-300 h-10"></div>
+
+        <button
+          onClick={onClickMobile}
+          className="flex flex-row justify-between items-center text-gray-700 px-4 py-2 rounded-full transition-opacity transition-bg hover:opacity-95 hover:bg-blue-100"
+        >
+          <MobileIcon customClass="h-5 w-5 mr-3" testId="contact-mobile-icon" />
+          Mobile
         </button>
       </div>
     </div>

@@ -1,3 +1,5 @@
+import { MouseEventHandler } from 'react'
+
 export interface IHomeInfoCard {
   info: ICardInfo[]
 }
@@ -60,5 +62,9 @@ export interface IContactCardSmall {
   subtitle: string
   imageUrl?: string
   chipText: string
-  onClick?: (value: any) => void
+  contactName: string
+  contactEmail: string
+  contactMobile: string
+  onClickEmail?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  onClickMobile?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
