@@ -338,3 +338,55 @@ export const CheckIcon = ({
     </svg>
   )
 }
+
+export const EmailIcon = ({
+  customClass,
+  stroke,
+  onClick,
+  testId,
+}: IHeroIconProps) => {
+  return (
+    <svg
+      data-testid={testId}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={stroke || 1.5}
+      stroke="currentColor"
+      className={customClass}
+      onClick={onClick}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"
+      />
+    </svg>
+  )
+}
+
+export const MobileIcon = ({
+  customClass,
+  stroke,
+  onClick,
+  testId,
+}: IHeroIconProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      data-testid={testId}
+      strokeWidth={stroke || 1.5}
+      stroke="currentColor"
+      className={customClass}
+      onClick={onClick}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
+      />
+    </svg>
+  )
+}

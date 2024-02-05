@@ -1,8 +1,24 @@
+'use client'
+
 import ContactCardSmall from '../shared/contact-card-small/ContactCardSmall'
+import { IContactCardSmall } from '../utils/interface/interfaces'
 import { contactCardSmallData } from '../utils/data/mock-data'
 import Header from '../shared/header/Header'
+import { MouseEventHandler } from 'react'
 
 export default function Page() {
+  const handleClickEmail = (evt: MouseEventHandler<HTMLButtonElement>) => {
+    if (evt) {
+      console.log(evt)
+    }
+  }
+
+  const handleClickMobile = (evt: MouseEventHandler<HTMLButtonElement>) => {
+    if (evt) {
+      console.log(evt)
+    }
+  }
+
   return (
     <>
       <Header title="Backoffice" />
@@ -33,6 +49,11 @@ export default function Page() {
                   subtitle={card.subtitle}
                   imageUrl={card.imageUrl}
                   chipText={card.chipText}
+                  contactEmail={card.contactEmail}
+                  contactMobile={card.contactMobile}
+                  contactName={card.contactName}
+                  onClickEmail={(e: any) => handleClickEmail(e)}
+                  onClickMobile={(e: any) => handleClickMobile(e)}
                 />
               ))}
             </div>
