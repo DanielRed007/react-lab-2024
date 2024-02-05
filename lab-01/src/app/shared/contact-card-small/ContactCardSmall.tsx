@@ -1,7 +1,7 @@
 'use client'
 
-import { IContactCardSmall } from '@/app/utils/interface/interfaces'
-import { EmailIcon, MobileIcon } from '@/app/utils/icons/icons'
+import { IContactCardSmall } from '../../utils/interface/interfaces'
+import { EmailIcon, MobileIcon } from '../../utils/icons/icons'
 import React, { FC } from 'react'
 
 const ContactCardSmall: FC<IContactCardSmall> = ({
@@ -9,6 +9,8 @@ const ContactCardSmall: FC<IContactCardSmall> = ({
   subtitle,
   imageUrl,
   chipText,
+  emailTestId,
+  mobileTestId,
   contactEmail,
   contactMobile,
   onClickEmail,
@@ -47,20 +49,22 @@ const ContactCardSmall: FC<IContactCardSmall> = ({
 
       <div className="flex flex-row justify-around space-x-2">
         <button
+          data-test-id={emailTestId}
           onClick={onClickEmail}
           className="flex flex-row justify-between items-center text-gray-700 px-4 py-2 rounded-full transition-opacity transition-bg hover:opacity-95 hover:bg-blue-100"
         >
-          <EmailIcon customClass="h-5 w-5 mr-3" testId="contact-mail-icon" />
+          <EmailIcon customClass="h-5 w-5 mr-3" />
           Email
         </button>
 
         <div className="border-l border-gray-300 h-10"></div>
 
         <button
+          data-test-id={mobileTestId}
           onClick={onClickMobile}
           className="flex flex-row justify-between items-center text-gray-700 px-4 py-2 rounded-full transition-opacity transition-bg hover:opacity-95 hover:bg-blue-100"
         >
-          <MobileIcon customClass="h-5 w-5 mr-3" testId="contact-mobile-icon" />
+          <MobileIcon customClass="h-5 w-5 mr-3" />
           Mobile
         </button>
       </div>

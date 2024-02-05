@@ -49,6 +49,8 @@ export default function Page() {
                   subtitle={card.subtitle}
                   imageUrl={card.imageUrl}
                   chipText={card.chipText}
+                  emailTestId={'contact-mail-icon-' + (index + 1)}
+                  mobileTestId={'contact-mobile-icon-' + (index + 1)}
                   contactEmail={card.contactEmail}
                   contactMobile={card.contactMobile}
                   contactName={card.contactName}

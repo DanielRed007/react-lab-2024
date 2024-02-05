@@ -62,6 +62,8 @@ export interface IContactCardSmall {
   subtitle: string
   imageUrl?: string
   chipText: string
+  emailTestId?: string
+  mobileTestId?: string
   contactName: string
   contactEmail: string
   contactMobile: string
