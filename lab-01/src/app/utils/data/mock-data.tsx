@@ -163,7 +163,7 @@ export const contactCardSmallData: IContactCardSmall[] = [
     chipText: 'light',
   },
   {
-    title: 'Title 1',
+    title: 'Title 2',
     subtitle: 'This is a simple rounded card using Tailwind CSS.',
     imageUrl: 'https://via.placeholder.com/150',
     contactEmail: 'tea@aeterna.et',
@@ -172,7 +172,7 @@ export const contactCardSmallData: IContactCardSmall[] = [
     chipText: 'light',
   },
   {
-    title: 'Title 1',
+    title: 'Title 3',
     subtitle: 'This is a simple rounded card using Tailwind CSS.',
     imageUrl: 'https://via.placeholder.com/150',
     contactEmail: 'oceanus@aeterna.et',
@@ -181,7 +181,7 @@ export const contactCardSmallData: IContactCardSmall[] = [
     chipText: 'light',
   },
   {
-    title: 'Title 1',
+    title: 'Title 4',
     subtitle: 'This is a simple rounded card using Tailwind CSS.',
     imageUrl: 'https://via.placeholder.com/150',
     contactEmail: 'chronos@aeterna.et',
@@ -190,7 +190,7 @@ export const contactCardSmallData: IContactCardSmall[] = [
     chipText: 'light',
   },
   {
-    title: 'Title 1',
+    title: 'Title 5',
     subtitle: 'This is a simple rounded card using Tailwind CSS.',
     imageUrl: 'https://via.placeholder.com/150',
     contactEmail: 'zeus@aeterna.et',
@@ -199,7 +199,7 @@ export const contactCardSmallData: IContactCardSmall[] = [
     chipText: 'light',
   },
   {
-    title: 'Title 1',
+    title: 'Title 6',
     subtitle: 'This is a simple rounded card using Tailwind CSS.',
     imageUrl: 'https://via.placeholder.com/150',
     contactEmail: 'trajanus.divinus@aeterna.et',
