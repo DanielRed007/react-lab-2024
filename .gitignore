@@ -35,3 +35,40 @@ lab-01/.vercel
 # typescript
 lab-01/*.tsbuildinfo
 lab-01/next-env.d.ts
+
+#LAB-02
+
+# dependencies
+lab-02/node_modules
+lab-02/.pnp
+lab-02/.pnp.js
+lab-02/.yarn/install-state.gz
+
+# testing
+lab-02/coverage
+
+# next.js
+lab-02/.next/
+lab-02/out/
+
+# production
+lab-02/build
+
+# misc
+lab-02/.DS_Store
+lab-02/*.pem
+
+# debug
+lab-02/npm-debug.log*
+lab-02/yarn-debug.log*
+lab-02/yarn-error.log*
+
+# local env files
+lab-02/.env*.local
+
+# vercel
+lab-02/.vercel
+
+# typescript
+lab-02/*.tsbuildinfo
+lab-02/next-env.d.ts
