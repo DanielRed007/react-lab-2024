@@ -1,12 +1,15 @@
 import React from "react";
 import SelectCard from "../components/select-card/SelectCard";
 import { selectCardMockData } from "../util/mock/data.mock";
+import Tooltip from "../components/tooltip/Tooltip";
 
 const Home = () => {
   return (
     <div className="h-screen">
       <div className="w-2/3 md:mx-auto flex flex-wrap justify-between mt-9">
         <h1 className="text-3xl text-blue-700">Home</h1>
+
+        <Tooltip text="This is a tooltip!" />
       </div>
       <div className="w-2/3 md:mx-auto flex flex-wrap justify-between mt-9">
         {selectCardMockData.map((card, index) => (
