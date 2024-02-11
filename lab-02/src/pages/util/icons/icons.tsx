@@ -2,9 +2,10 @@ import { FC } from "react";
 
 interface IconProps {
   onClick(): void;
+  testId: string;
 }
 
-export const SettingsIcon: FC<IconProps> = ({ onClick }) => {
+export const SettingsIcon: FC<IconProps> = ({ onClick, testId }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,6 +15,7 @@ export const SettingsIcon: FC<IconProps> = ({ onClick }) => {
       stroke="currentColor"
       className="w-6 h-6"
       onClick={onClick}
+      data-test-id={testId}
     >
       <path
         strokeLinecap="round"
@@ -24,7 +26,7 @@ export const SettingsIcon: FC<IconProps> = ({ onClick }) => {
   );
 };
 
-export const BellIcon: FC<IconProps> = ({ onClick }) => {
+export const BellIcon: FC<IconProps> = ({ onClick, testId }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -34,6 +36,7 @@ export const BellIcon: FC<IconProps> = ({ onClick }) => {
       stroke="currentColor"
       className="w-6 h-6"
       onClick={onClick}
+      data-test-id={testId}
     >
       <path
         strokeLinecap="round"
@@ -44,7 +47,7 @@ export const BellIcon: FC<IconProps> = ({ onClick }) => {
   );
 };
 
-export const WarningIcon: FC<IconProps> = ({ onClick }) => {
+export const WarningIcon: FC<IconProps> = ({ onClick, testId }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -54,6 +57,7 @@ export const WarningIcon: FC<IconProps> = ({ onClick }) => {
       stroke="currentColor"
       className="w-6 h-6"
       onClick={onClick}
+      data-test-id={testId}
     >
       <path
         strokeLinecap="round"

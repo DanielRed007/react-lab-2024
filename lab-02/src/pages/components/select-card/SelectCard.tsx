@@ -1,5 +1,6 @@
 import { BellIcon, SettingsIcon, WarningIcon } from "@/pages/util/icons/icons";
 import { FC } from "react";
+import PopoverTooltip from "../popover/PopoverTooltip";
 
 interface SelectCardProps {
   title: string;
@@ -20,11 +21,18 @@ const SelectCard: FC<SelectCardProps> = ({
 
   const getCardIcon = () => {
     return cardType === "settings" ? (
-      <SettingsIcon onClick={() => getIconWidget(cardType)} />
+      <SettingsIcon
+        testId="settings-icon"
+        onClick={() => getIconWidget(cardType)}
+      />
     ) : cardType === "notification" ? (
-      <BellIcon onClick={() => getIconWidget(cardType)} />
+      // <BellIcon testId="bell-icon" onClick={() => getIconWidget(cardType)} />
+      <PopoverTooltip />
     ) : cardType === "tooltip" ? (
-      <WarningIcon onClick={() => getIconWidget(cardType)} />
+      <WarningIcon
+        testId="warning-icon"
+        onClick={() => getIconWidget(cardType)}
+      />
     ) : null;
   };
 
