@@ -11,6 +11,7 @@ const Tooltip: FC<TooltipProps> = ({ text, children }) => {
   return (
     <div className="relative flex flex-col items-center group">
       <svg
+        data-test-id="home-tooltip"
         className="w-5 h-5"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
