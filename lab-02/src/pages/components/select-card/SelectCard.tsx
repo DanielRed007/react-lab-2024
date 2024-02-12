@@ -27,7 +27,7 @@ const SelectCard: FC<SelectCardProps> = ({
       />
     ) : cardType === "notification" ? (
       // <BellIcon testId="bell-icon" onClick={() => getIconWidget(cardType)} />
-      <PopoverTooltip />
+      <PopoverTooltip testId="popover-tooltip" />
     ) : cardType === "tooltip" ? (
       <WarningIcon
         testId="warning-icon"
