@@ -21,18 +21,11 @@ const SelectCard: FC<SelectCardProps> = ({
 
   const getCardIcon = () => {
     return cardType === "settings" ? (
-      <SettingsIcon
-        testId="settings-icon"
-        onClick={() => getIconWidget(cardType)}
-      />
+      <PopoverTooltip testId="popover-tooltip" />
     ) : cardType === "notification" ? (
-      // <BellIcon testId="bell-icon" onClick={() => getIconWidget(cardType)} />
       <PopoverTooltip testId="popover-tooltip" />
     ) : cardType === "tooltip" ? (
-      <WarningIcon
-        testId="warning-icon"
-        onClick={() => getIconWidget(cardType)}
-      />
+      <PopoverTooltip testId="popover-tooltip" />
     ) : null;
   };
 
