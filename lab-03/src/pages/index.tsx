@@ -2,30 +2,29 @@ import Head from "next/head";
 
 import { Dialog } from "@headlessui/react";
 import { useState } from "react";
+import { useLabContext } from "@/context/LabContext";
 
 export default function Index() {
-  // State for controlling the modal
   const [isOpen, setIsOpen] = useState(false);
+  const { count, increment, decrement } = useLabContext();
 
   return (
     <div>
-      {/* Main Content Body */}
       <main className="container mx-auto py-8 h-dvh">
-        {/* Your main content goes here */}
         <h2 className="text-3xl font-bold mb-4">Welcome to Our Website</h2>
         <p className="text-lg">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non
           gravida odio. Integer vel lorem vitae elit varius venenatis sed ac
           lorem.
         </p>
-        {/* Button to trigger the modal */}
+
         <button
           onClick={() => setIsOpen(true)}
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
         >
           Open Modal
         </button>
-        {/* Modal */}
+
         <Dialog
           open={isOpen}
           onClose={() => setIsOpen(false)}
@@ -47,6 +46,12 @@ export default function Index() {
             </button>
           </div>
         </Dialog>
+
+        <div>
+          <h2>Count: {count}</h2>
+          <button onClick={increment}>Increment</button>
+          <button onClick={decrement}>Decrement</button>
+        </div>
       </main>
     </div>
   );

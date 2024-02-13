@@ -5,7 +5,7 @@ const Header = () => {
     <header className="bg-gray-800 text-white py-4">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-2xl font-bold">Lab 03 - Next Page Router</h1>
-        {/* Navigation Links */}
+
         <nav>
           <ul className="flex space-x-4">
             <li>
