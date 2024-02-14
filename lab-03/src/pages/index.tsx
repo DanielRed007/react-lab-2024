@@ -1,56 +1,57 @@
 import Head from "next/head";
-
+import { Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
 import { Dialog } from "@headlessui/react";
-import { useState } from "react";
 import { useLabContext } from "@/context/LabContext";
+import { useTimeoutFn } from "react-use";
 
 export default function Index() {
   const [isOpen, setIsOpen] = useState(false);
-  const { count, increment, decrement } = useLabContext();
+  let [isShowing, setIsShowing] = useState(true);
+  let [, , resetIsShowing] = useTimeoutFn(() => setIsShowing(true), 500);
+  const { openModal } = useLabContext();
 
   return (
     <div>
       <main className="container mx-auto py-8 h-dvh">
-        <h2 className="text-3xl font-bold mb-4">Welcome to Our Website</h2>
-        <p className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non
-          gravida odio. Integer vel lorem vitae elit varius venenatis sed ac
-          lorem.
-        </p>
+        <h2 className="text-4xl font-bold mb-4">
+          NextJS + Context API Workshop
+        </h2>
 
-        <button
-          onClick={() => setIsOpen(true)}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-        >
-          Open Modal
-        </button>
-
-        <Dialog
-          open={isOpen}
-          onClose={() => setIsOpen(false)}
-          className="fixed inset-0 z-10 overflow-y-auto"
-        >
-          <Dialog.Overlay className="fixed inset-0 bg-black opacity-50" />
-          <div className="flex items-center justify-center min-h-screen">
-            <Dialog.Title className="text-lg font-bold">
-              Modal Title
-            </Dialog.Title>
-            <Dialog.Description className="text-sm mt-2">
-              Modal Content Goes Here...
-            </Dialog.Description>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-            >
-              Close
-            </button>
+        <div className="flex justify-center mt-10">
+          <div className="max-w-xs w-48 h-48 rounded bg-yellow-500 overflow-hidden shadow-lg mx-4">
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl mb-2 text-center mt-9">
+                Payments
+              </div>
+              <button
+                onClick={openModal}
+                className="bg-gray-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mx-auto block"
+              >
+                Just Click
+              </button>
+            </div>
           </div>
-        </Dialog>
-
-        <div>
-          <h2>Count: {count}</h2>
-          <button onClick={increment}>Increment</button>
-          <button onClick={decrement}>Decrement</button>
+          <div className="max-w-xs w-48 h-48 rounded bg-yellow-500 overflow-hidden shadow-lg mx-4">
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl mb-2 text-center mt-9">
+                Modal 2
+              </div>
+              <button className="bg-gray-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mx-auto block">
+                Button
+              </button>
+            </div>
+          </div>
+          <div className="max-w-xs w-48 h-48 rounded bg-yellow-500 overflow-hidden shadow-lg mx-4">
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl mb-2 text-center mt-9">
+                Modal 3
+              </div>
+              <button className="bg-gray-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mx-auto block">
+                Button
+              </button>
+            </div>
+          </div>
         </div>
       </main>
     </div>

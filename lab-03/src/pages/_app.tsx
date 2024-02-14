@@ -1,3 +1,4 @@
+import DialogModal from "@/components/dialog-modal/DialogModal";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import { LabContextProvider } from "@/context/LabContext";
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Header />
         <Component {...pageProps} />
         <Footer />
+        <DialogModal />
       </LabContextProvider>
     </>
   );

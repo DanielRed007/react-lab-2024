@@ -1,9 +1,9 @@
 import React, { FC, createContext, useContext, useState } from "react";
 
 interface LabContextData {
-  count: number;
-  increment: () => void;
-  decrement: () => void;
+  isModalOpen: boolean;
+  openModal: () => void;
+  closeModal: () => void;
 }
 
 const LabContext = createContext<LabContextData | undefined>(undefined);
@@ -23,15 +23,20 @@ interface LabContextProviderProps {
 export const LabContextProvider: FC<LabContextProviderProps> = ({
   children,
 }) => {
-  const [count, setCount] = useState<number>(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const increment = () => setCount((prevCount) => prevCount + 1);
-  const decrement = () => setCount((prevCount) => prevCount - 1);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const value: LabContextData = {
-    count,
-    increment,
-    decrement,
+    isModalOpen,
+    openModal,
+    closeModal,
   };
 
   return <LabContext.Provider value={value}>{children}</LabContext.Provider>;
