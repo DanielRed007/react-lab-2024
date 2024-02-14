@@ -6,7 +6,7 @@ import { useLabContext } from "@/context/LabContext";
 interface DialogModalProps {}
 
 const DialogModal: FC<DialogModalProps> = () => {
-  const { closeModal, isModalOpen } = useLabContext();
+  const { closeModal, isModalOpen, modalType } = useLabContext();
 
   return (
     <>
@@ -42,12 +42,22 @@ const DialogModal: FC<DialogModalProps> = () => {
                   >
                     Payments
                   </Dialog.Title>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      Your payment has been successfully submitted. We’ve sent
-                      you an email with all of the details of your order.
-                    </p>
-                  </div>
+                  {modalType === "payments" ? (
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500">
+                        Your payment has been successfully submitted. We’ve sent
+                        you an email with all of the details of your order.
+                      </p>
+                    </div>
+                  ) : modalType === "form" ? (
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500">
+                        This is gonna be a form!
+                      </p>
+                    </div>
+                  ) : (
+                    "No Modal!"
+                  )}
 
                   <div className="mt-4">
                     <button
