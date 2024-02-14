@@ -2,7 +2,8 @@ import React, { FC, createContext, useContext, useState } from "react";
 
 interface LabContextData {
   isModalOpen: boolean;
-  openModal: () => void;
+  modalType: string;
+  openModal: (type: string) => void;
   closeModal: () => void;
 }
 
@@ -24,9 +25,11 @@ export const LabContextProvider: FC<LabContextProviderProps> = ({
   children,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState("");
 
-  const openModal = () => {
+  const openModal = (type: string) => {
     setIsModalOpen(true);
+    setModalType(type);
   };
 
   const closeModal = () => {
@@ -37,6 +40,7 @@ export const LabContextProvider: FC<LabContextProviderProps> = ({
     isModalOpen,
     openModal,
     closeModal,
+    modalType,
   };
 
   return <LabContext.Provider value={value}>{children}</LabContext.Provider>;
