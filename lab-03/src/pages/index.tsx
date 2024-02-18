@@ -1,12 +1,8 @@
-import Head from "next/head";
-import { Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
-import { Dialog } from "@headlessui/react";
 import { useLabContext } from "@/context/LabContext";
-import { useTimeoutFn } from "react-use";
+import ButtonCard from "@/components/button-card/ButtonCard";
 
 export default function Index() {
-  const { openModal } = useLabContext();
+  const { openModal, modalType } = useLabContext();
 
   const handleOpenModal = (type: string) => {
     openModal(type);
@@ -21,40 +17,18 @@ export default function Index() {
 
         <div className="flex justify-center mt-10">
           <div className="max-w-xs w-48 h-48 rounded bg-yellow-500 overflow-hidden shadow-lg mx-4">
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2 text-center mt-9">
-                Payments
-              </div>
-              <button
-                onClick={() => handleOpenModal("payments")}
-                className="bg-gray-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mx-auto block"
-              >
-                Just Click
-              </button>
-            </div>
+            <ButtonCard
+              title="Payments"
+              type="payments"
+              onClickButton={handleOpenModal}
+            />
           </div>
           <div className="max-w-xs w-48 h-48 rounded bg-yellow-500 overflow-hidden shadow-lg mx-4">
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2 text-center mt-9">
-                Form Sample
-              </div>
-              <button
-                onClick={() => handleOpenModal("form")}
-                className="bg-gray-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mx-auto block"
-              >
-                Button
-              </button>
-            </div>
-          </div>
-          <div className="max-w-xs w-48 h-48 rounded bg-yellow-500 overflow-hidden shadow-lg mx-4">
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2 text-center mt-9">
-                Modal 3
-              </div>
-              <button className="bg-gray-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mx-auto block">
-                Button
-              </button>
-            </div>
+            <ButtonCard
+              title="Form Sample"
+              type="form"
+              onClickButton={handleOpenModal}
+            />
           </div>
         </div>
       </main>
