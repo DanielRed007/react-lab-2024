@@ -56,4 +56,35 @@ describe("Home", () => {
     // modal must disappear
     expect(dialogContainer).not.toBeInTheDocument();
   });
+
+  it("displays a dropdown option when clicking the writers dropdown", async () => {
+    render(
+      <LabContextProvider>
+        <Header />
+        <Home />
+        <Footer />
+        <DialogModal />
+      </LabContextProvider>
+    );
+
+    // get dropdown button
+    const writersDropdownButton = await screen.getByTestId(
+      "writers-dropdown-button"
+    );
+
+    expect(writersDropdownButton).toBeInTheDocument();
+
+    // Click on dropdown
+    await fireEvent.click(writersDropdownButton);
+
+    // Clarice must be there
+    const clariceLispector = await screen.getByText("Clarice Lispector");
+    expect(clariceLispector).toBeInTheDocument();
+
+    // Click again to close the dropdown
+    await fireEvent.click(writersDropdownButton);
+
+    // Assert that Clarice Lispector is no longer present
+    expect(clariceLispector).not.toBeInTheDocument();
+  });
 });
