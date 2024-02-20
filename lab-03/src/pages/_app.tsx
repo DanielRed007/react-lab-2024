@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <LabContextProvider>
         <Head>
-          <title>Your Website</title>
+          <title>Lab 03 - Contex API!</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Header />
