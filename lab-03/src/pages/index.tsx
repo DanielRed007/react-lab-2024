@@ -1,23 +1,12 @@
-import { useState, useEffect } from "react";
 import { useLabContext } from "@/context/LabContext";
 import ButtonCard from "@/components/button-card/ButtonCard";
 import Dropdown from "@/components/dropdown/Dropdown";
 import { mockWriters } from "@/util/mocks/mock-data";
-import { Writer } from "@/util/models/interfaces";
+import WriterCard from "@/components/writer-card/WriterCard";
 
 export default function Index() {
-  const [dropdownOptionSelected, setDropdownOptionSelected] = useState(
-    mockWriters[0]
-  );
-  const { openModal } = useLabContext();
-
-  const handleOpenModal = (type: string) => {
-    openModal(type);
-  };
-
-  const handleDropdownOption = (option: Writer) => {
-    setDropdownOptionSelected(option);
-  };
+  const { openModal, setDropdownOption, dropdownOptionSelected } =
+    useLabContext();
 
   return (
     <div>
@@ -32,26 +21,28 @@ export default function Index() {
             <ButtonCard
               title="Payments"
               type="payments"
-              onClickButton={handleOpenModal}
+              onClickButton={() => openModal("payments")}
             />
           </div>
           <div className="max-w-xs w-48 h-48 rounded bg-yellow-500 overflow-hidden shadow-lg mx-4">
             <ButtonCard
               title="Form Sample"
               type="form"
-              onClickButton={handleOpenModal}
+              onClickButton={() => openModal("form")}
             />
           </div>
         </div>
 
         <div className="flex justify-center items-center mt-10">
           <h2 className="text-2xl font-bold mb-4 mr-9">Dropdown</h2>
-          <div className="flex justify-center items-center max-w-xs w-96 h-72 rounded bg-yellow-500 shadow-lg mx-4">
+          <div className="flex justify-center flex-row w-3/6 h-72 rounded bg-yellow-500 shadow-lg mx-4">
             <Dropdown
               options={mockWriters}
               selectedOption={dropdownOptionSelected}
-              optionChange={handleDropdownOption}
+              optionChange={setDropdownOption}
             />
+
+            <WriterCard selected={dropdownOptionSelected} />
           </div>
         </div>
       </main>

@@ -87,4 +87,31 @@ describe("Home", () => {
     // Assert that Clarice Lispector is no longer present
     expect(clariceLispector).not.toBeInTheDocument();
   });
+
+  it("displays a dropdown whick can switch options and changes the content on the writer card", async () => {
+    render(
+      <LabContextProvider>
+        <Header />
+        <Home />
+        <Footer />
+        <DialogModal />
+      </LabContextProvider>
+    );
+
+    const writersDropdownButton = await screen.getByTestId(
+      "writers-dropdown-button"
+    );
+
+    expect(writersDropdownButton).toBeInTheDocument();
+
+    await fireEvent.click(writersDropdownButton);
+
+    const phillipDick = await screen.getByRole("writer-option-1");
+    expect(phillipDick).toBeInTheDocument();
+
+    await fireEvent.click(phillipDick);
+
+    const phillipDickBirthday = screen.getByText("Birthday: 12/12/2001");
+    expect(phillipDickBirthday).toBeInTheDocument();
+  });
 });
