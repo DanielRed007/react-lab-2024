@@ -9,6 +9,8 @@ interface LabContextData {
   closeModal: () => void;
   dropdownOptionSelected: Writer;
   setDropdownOption: (option: Writer) => void;
+  toggleEnabled: boolean;
+  setToggleSwitch: () => void;
 }
 
 const LabContext = createContext<LabContextData | undefined>(undefined);
@@ -28,6 +30,7 @@ interface LabContextProviderProps {
 export const LabContextProvider: FC<LabContextProviderProps> = ({
   children,
 }) => {
+  const [toggleEnabled, switchToggleEnabled] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [modalType, setModalType] = useState<string>("");
   const [dropdownOptionSelected, setDropdownOptionSelected] = useState<Writer>(
@@ -47,6 +50,10 @@ export const LabContextProvider: FC<LabContextProviderProps> = ({
     setDropdownOptionSelected(option);
   };
 
+  const setToggleSwitch = () => {
+    switchToggleEnabled(!toggleEnabled);
+  };
+
   const value: LabContextData = {
     isModalOpen,
     openModal,
@@ -54,6 +61,8 @@ export const LabContextProvider: FC<LabContextProviderProps> = ({
     modalType,
     dropdownOptionSelected,
     setDropdownOption,
+    setToggleSwitch,
+    toggleEnabled,
   };
 
   return <LabContext.Provider value={value}>{children}</LabContext.Provider>;
