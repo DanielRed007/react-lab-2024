@@ -3,10 +3,17 @@ import ButtonCard from "@/components/button-card/ButtonCard";
 import Dropdown from "@/components/dropdown/Dropdown";
 import { mockWriters } from "@/util/mocks/mock-data";
 import WriterCard from "@/components/writer-card/WriterCard";
+import ToggleSwitch from "@/components/toggle-switch/ToggleSwitch";
+import Accordion from "@/components/accordion/Accordion";
 
 export default function Index() {
-  const { openModal, setDropdownOption, dropdownOptionSelected } =
-    useLabContext();
+  const {
+    openModal,
+    setDropdownOption,
+    dropdownOptionSelected,
+    toggleEnabled,
+    setToggleSwitch,
+  } = useLabContext();
 
   return (
     <div>
@@ -43,6 +50,22 @@ export default function Index() {
             />
 
             <WriterCard selected={dropdownOptionSelected} />
+          </div>
+        </div>
+
+        <div className="flex justify-center items-center mt-10">
+          <h2 className="text-2xl font-bold mb-4 mr-9">Toggle & Radio Group</h2>
+          <div className="flex justify-center flex-row w-3/6 h-72 rounded bg-yellow-500 shadow-lg mx-4">
+            <ToggleSwitch
+              enabled={toggleEnabled}
+              onChangeSwitch={setToggleSwitch}
+            />
+
+            <div className="mt-4 mb-4 w-4/6 bg-zinc-500 rounded overflow-hidden shadow-lg">
+              <div className="px-6 py-4">
+                {toggleEnabled ? <Accordion /> : null}
+              </div>
+            </div>
           </div>
         </div>
       </main>
