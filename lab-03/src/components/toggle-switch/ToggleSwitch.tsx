@@ -12,6 +12,7 @@ const ToggleSwitch: FC<ToggleSwitchProps> = ({ enabled, onChangeSwitch }) => {
   return (
     <div className="py-16 p-9">
       <Switch
+        data-testid="toggle-switch"
         checked={enabled}
         onChange={onChangeSwitch}
         className={`${enabled ? "bg-blue-900" : "bg-blue-500"}

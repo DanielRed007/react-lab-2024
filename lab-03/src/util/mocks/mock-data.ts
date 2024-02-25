@@ -1,4 +1,4 @@
-import { Writer } from "../models/interfaces";
+import { AccordionOption, Writer } from "../models/interfaces";
 
 export const mockWriters: Writer[] = [
   {
@@ -36,5 +36,17 @@ export const mockWriters: Writer[] = [
     birthday: "12/12/2001",
     gender: "female",
     country: "Brazil",
+  },
+];
+
+export const accordionData: AccordionOption[] = [
+  {
+    title: "Titus Livi",
+    content: "Titus Livis is one of the Greatests Roman writers and historians",
+  },
+  {
+    title: "Hannibal Barca",
+    content:
+      "Hannibal Barca is one of the Greatests Generals and strategits in the history of the world",
   },
 ];

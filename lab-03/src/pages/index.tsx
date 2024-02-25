@@ -17,7 +17,7 @@ export default function Index() {
 
   return (
     <div>
-      <main className="container mx-auto py-8 h-dvh">
+      <main className="container mx-auto my-auto py-8 h-auto">
         <h2 className="text-4xl font-bold mb-4">
           NextJS + Context API Workshop
         </h2>
@@ -55,7 +55,7 @@ export default function Index() {
 
         <div className="flex justify-center items-center mt-10">
           <h2 className="text-2xl font-bold mb-4 mr-9">Toggle & Radio Group</h2>
-          <div className="flex justify-center flex-row w-3/6 h-72 rounded bg-yellow-500 shadow-lg mx-4">
+          <div className="flex justify-center flex-row w-3/6 h-96 rounded bg-yellow-500 shadow-lg mx-4">
             <ToggleSwitch
               enabled={toggleEnabled}
               onChangeSwitch={setToggleSwitch}
@@ -63,7 +63,13 @@ export default function Index() {
 
             <div className="mt-4 mb-4 w-4/6 bg-zinc-500 rounded overflow-hidden shadow-lg">
               <div className="px-6 py-4">
-                {toggleEnabled ? <Accordion /> : null}
+                {toggleEnabled ? (
+                  <Accordion />
+                ) : (
+                  <div className="w-full h-full flex justify-center align-center">
+                    <h3>Activate toggle to see the Accordion</h3>
+                  </div>
+                )}
               </div>
             </div>
           </div>
