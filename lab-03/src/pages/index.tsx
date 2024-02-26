@@ -5,6 +5,8 @@ import { mockWriters } from "@/util/mocks/mock-data";
 import WriterCard from "@/components/writer-card/WriterCard";
 import ToggleSwitch from "@/components/toggle-switch/ToggleSwitch";
 import Accordion from "@/components/accordion/Accordion";
+import RadioGroupSelect from "@/components/radio-group/RadioGroupSelect";
+import { philosophers } from "@/util/mocks/mock-data";
 
 export default function Index() {
   const {
@@ -72,6 +74,13 @@ export default function Index() {
                 )}
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="flex justify-center items-center mt-10">
+          <h2 className="text-2xl font-bold mb-4 mr-9">Toggle & Radio Group</h2>
+          <div className="flex justify-center flex-row w-3/6 h-96 rounded bg-yellow-500 shadow-lg mx-4">
+            <RadioGroupSelect options={philosophers} />
           </div>
         </div>
       </main>

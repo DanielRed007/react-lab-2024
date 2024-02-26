@@ -9,3 +9,9 @@ export interface AccordionOption {
   title: string;
   content: string;
 }
+
+export interface Philosopher {
+  name: string;
+  country: string;
+  role: string;
+}
