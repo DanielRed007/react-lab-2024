@@ -6,16 +6,20 @@ import Header from "@/components/header/Header";
 import DialogModal from "@/components/dialog-modal/DialogModal";
 import Footer from "@/components/footer/Footer";
 
+function renderIndexComponent() {
+  return render(
+    <LabContextProvider>
+      <Header />
+      <Home />
+      <Footer />
+      <DialogModal />
+    </LabContextProvider>
+  );
+}
+
 describe("Home", () => {
   it("renders full homepage", () => {
-    render(
-      <LabContextProvider>
-        <Header />
-        <Home />
-        <Footer />
-        <DialogModal />
-      </LabContextProvider>
-    );
+    renderIndexComponent();
 
     // Get Header content box and footer
     const header = screen.getByText("Lab 03 - Next Page Router");
@@ -31,14 +35,7 @@ describe("Home", () => {
   });
 
   it("a payments modal can be activated and closed", async () => {
-    render(
-      <LabContextProvider>
-        <Header />
-        <Home />
-        <Footer />
-        <DialogModal />
-      </LabContextProvider>
-    );
+    renderIndexComponent();
 
     // get payments button
     const paymentsButton = screen.getByTestId("payments");
@@ -58,14 +55,7 @@ describe("Home", () => {
   });
 
   it("displays a dropdown option when clicking the writers dropdown", async () => {
-    render(
-      <LabContextProvider>
-        <Header />
-        <Home />
-        <Footer />
-        <DialogModal />
-      </LabContextProvider>
-    );
+    renderIndexComponent();
 
     // get dropdown button
     const writersDropdownButton = await screen.getByTestId(
@@ -89,14 +79,7 @@ describe("Home", () => {
   });
 
   it("displays a dropdown whick can switch options and changes the content on the writer card", async () => {
-    render(
-      <LabContextProvider>
-        <Header />
-        <Home />
-        <Footer />
-        <DialogModal />
-      </LabContextProvider>
-    );
+    renderIndexComponent();
 
     const writersDropdownButton = await screen.getByTestId(
       "writers-dropdown-button"
@@ -113,5 +96,29 @@ describe("Home", () => {
 
     const phillipDickBirthday = screen.getByText("Birthday: 12/12/2001");
     expect(phillipDickBirthday).toBeInTheDocument();
+  });
+
+  it("triggers the toggle button", async () => {
+    renderIndexComponent();
+    // Section must be inactive
+    const inactiveSection = screen.getByText(
+      "Activate toggle to see the Accordion"
+    );
+    expect(inactiveSection).toBeInTheDocument();
+
+    // get toggle button
+    const toggleButton = await screen.getByTestId("toggle-switch");
+    fireEvent.click(toggleButton);
+
+    // Click on Titus Livi option
+    const titusLiviOption = await screen.getByText("Titus Livi");
+    expect(titusLiviOption).toBeInTheDocument();
+    fireEvent.click(titusLiviOption);
+
+    // Titus Livi content must be rendered
+    const titusLiviContent = await screen.getByText(
+      "Titus Livis is one of the Greatests Roman writers and historians"
+    );
+    expect(titusLiviContent).toBeInTheDocument();
   });
 });

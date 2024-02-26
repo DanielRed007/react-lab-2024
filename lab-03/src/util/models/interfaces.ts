@@ -4,3 +4,14 @@ export interface Writer {
   gender: string;
   country: string;
 }
+
+export interface AccordionOption {
+  title: string;
+  content: string;
+}
+
+export interface Philosopher {
+  name: string;
+  country: string;
+  role: string;
+}
