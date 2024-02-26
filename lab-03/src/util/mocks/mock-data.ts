@@ -1,4 +1,4 @@
-import { AccordionOption, Writer } from "../models/interfaces";
+import { AccordionOption, Philosopher, Writer } from "../models/interfaces";
 
 export const mockWriters: Writer[] = [
   {
@@ -48,5 +48,23 @@ export const accordionData: AccordionOption[] = [
     title: "Hannibal Barca",
     content:
       "Hannibal Barca is one of the Greatests Generals and strategits in the history of the world",
+  },
+];
+
+export const philosophers: Philosopher[] = [
+  {
+    name: "Baruch Spinoza",
+    country: "Holland",
+    role: "Oculist",
+  },
+  {
+    name: "Aristoteles",
+    country: "Ancient Greece",
+    role: "Philosopher",
+  },
+  {
+    name: "Marcus Aurelius",
+    country: "Ancient Rome",
+    role: "Emperor",
   },
 ];
