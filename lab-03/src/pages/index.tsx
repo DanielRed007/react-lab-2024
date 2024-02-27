@@ -15,6 +15,8 @@ export default function Index() {
     dropdownOptionSelected,
     toggleEnabled,
     setToggleSwitch,
+    radioEnabled,
+    setRadioToggle,
   } = useLabContext();
 
   return (
@@ -80,7 +82,10 @@ export default function Index() {
         <div className="flex justify-center items-center mt-10">
           <h2 className="text-2xl font-bold mb-4 mr-9">Toggle & Radio Group</h2>
           <div className="flex justify-center flex-row w-3/6 h-96 rounded bg-yellow-500 shadow-lg mx-4">
-            <RadioGroupSelect options={philosophers} />
+            <RadioGroupSelect
+              options={philosophers}
+              toggleRadio={setRadioToggle}
+            />
           </div>
         </div>
       </main>

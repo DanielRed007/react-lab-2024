@@ -1,11 +1,11 @@
 import { FC, useState } from "react";
 import { RadioGroup } from "@headlessui/react";
-
 import { Philosopher } from "@/util/models/interfaces";
 import { CheckIcon } from "@/util/assets/icons/CheckIcon";
 
 interface RadioGroupSelectProps {
   options: any[];
+  toggleRadio(enabled: boolean): void;
 }
 
 const RadioGroupSelect: FC<RadioGroupSelectProps> = ({ options }) => {
