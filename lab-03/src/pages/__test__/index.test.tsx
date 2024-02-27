@@ -121,4 +121,21 @@ describe("Home", () => {
     );
     expect(titusLiviContent).toBeInTheDocument();
   });
+
+  it("switches option in the Radio Select tool", async () => {
+    renderIndexComponent();
+
+    const baruchOption = screen.getByRole("radio", { name: /Baruch Spinoza/i });
+    expect(baruchOption).toBeInTheDocument();
+    expect(baruchOption).toHaveAttribute("aria-checked", "true");
+
+    const aristotleOption = screen.getByRole("radio", { name: /Aristoteles/i });
+    expect(aristotleOption).toBeInTheDocument();
+    expect(aristotleOption).toHaveAttribute("aria-checked", "false");
+
+    await fireEvent.click(aristotleOption);
+
+    expect(aristotleOption).toHaveAttribute("aria-checked", "true");
+    expect(baruchOption).toHaveAttribute("aria-checked", "false");
+  });
 });

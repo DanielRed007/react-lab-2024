@@ -7,8 +7,6 @@ interface ToggleSwitchProps {
 }
 
 const ToggleSwitch: FC<ToggleSwitchProps> = ({ enabled, onChangeSwitch }) => {
-  // const [enabled, setEnabled] = useState(false);
-
   return (
     <div className="py-16 p-9">
       <Switch
