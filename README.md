@@ -51,6 +51,31 @@ Lab 01 was built to implement new functionalities and features using NextJS and 
 - Redux/toolkit was added under the NextJS Strategy for the App routing methodology for such framework.
 - It works using Redux Devtools in Chromium and/or supported browsers for the corresponding extension.
 
+## Lab 02
+
+Lab 02 has the intention to explore Headless UI, the Tailwind library, and use the NextJS legacy routing strategy, because my current projects require a deeper understnadig, so this is a warming up. Also I'm using ReactJS Context API, and React Testing Library to all of my components.
+
+### Notes:
+
+- ReactJS Context API.
+- Headless UI (Tailwind CSS/UI).
+- React Testing Library
+
+### Related Links
+
+Icon Library: https://heroicons.com/
+Widgets JS Library: https://headlessui.com/
+
+## Lab 03
+
+Lab 03 is verysimilar to Lab 02, just to continue the warming up.
+
+### Notes:
+
+- ReactJS Context API.
+- Headless UI (Tailwind CSS/UI).
+- React Testing Library
+
 ### Related Links
 
 Icon Library: https://heroicons.com/
