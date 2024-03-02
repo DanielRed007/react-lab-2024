@@ -68,3 +68,60 @@ export const philosophers: Philosopher[] = [
     role: "Emperor",
   },
 ];
+
+const tabDataContent = [
+  [
+    {
+      id: 1,
+      title: "Undervalued Roman Emperor",
+      date: "1700 years ago",
+      commentCount: 2,
+      shareCount: 23,
+    },
+    {
+      id: 2,
+      title: "Many thing popular about him are false",
+      date: "1700 years ago",
+      commentCount: 3,
+      shareCount: 2,
+    },
+  ],
+  [
+    {
+      id: 1,
+      title: "Undervalued Roman Emperor",
+      date: "1700 years ago",
+      commentCount: 2,
+      shareCount: 23,
+    },
+    {
+      id: 2,
+      title: "Many thing popular about him are false",
+      date: "1700 years ago",
+      commentCount: 3,
+      shareCount: 2,
+    },
+  ],
+  [
+    {
+      id: 1,
+      title: "The last great roman emperor",
+      date: "2d ago",
+      commentCount: 9,
+      shareCount: 5,
+    },
+    {
+      id: 2,
+      title: "Brutally betrayed by Ricimer the nefarious",
+      date: "4d ago",
+      commentCount: 1,
+      shareCount: 2,
+    },
+  ],
+];
+
+export const tabData = {
+  Maxentius: tabDataContent[0],
+  Aurelianus: tabDataContent[1],
+  Majorian: tabDataContent[2],
+};

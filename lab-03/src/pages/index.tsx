@@ -7,6 +7,7 @@ import ToggleSwitch from "@/components/toggle-switch/ToggleSwitch";
 import Accordion from "@/components/accordion/Accordion";
 import RadioGroupSelect from "@/components/radio-group/RadioGroupSelect";
 import { philosophers } from "@/util/mocks/mock-data";
+import TabGroup from "@/components/tab-group/TabGroup";
 
 export default function Index() {
   const {
@@ -86,6 +87,13 @@ export default function Index() {
               options={philosophers}
               toggleRadio={setRadioToggle}
             />
+          </div>
+        </div>
+
+        <div className="flex justify-center items-center mt-10">
+          <h2 className="text-2xl font-bold mb-4 mr-9">Tabs</h2>
+          <div className="flex justify-center flex-row w-3/6 h-96 rounded bg-yellow-500 shadow-lg mx-4">
+            <TabGroup />
           </div>
         </div>
       </main>
