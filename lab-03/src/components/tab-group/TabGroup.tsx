@@ -1,21 +1,25 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { Tab } from "@headlessui/react";
-import { tabData } from "@/util/mocks/mock-data";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
-const TabGroup = () => {
-  let [categories] = useState(tabData);
+interface TabGroupProps {
+  options: any;
+}
+
+const TabGroup: FC<TabGroupProps> = ({ options }) => {
+  let [categories] = useState(options);
 
   return (
     <div className="w-full max-w-md px-2 py-16 sm:px-0">
       <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
-          {Object.keys(categories).map((category) => (
+          {Object.keys(categories).map((category, index) => (
             <Tab
               key={category}
+              data-testid={category + index}
               className={({ selected }) =>
                 classNames(
                   "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
@@ -31,7 +35,7 @@ const TabGroup = () => {
           ))}
         </Tab.List>
         <Tab.Panels className="mt-2">
-          {Object.values(categories).map((posts, idx) => (
+          {Object.values(categories).map((posts: any, idx) => (
             <Tab.Panel
               key={idx}
               className={classNames(
@@ -40,7 +44,7 @@ const TabGroup = () => {
               )}
             >
               <ul>
-                {posts.map((post) => (
+                {posts?.map((post: any) => (
                   <li
                     key={post.id}
                     className="relative rounded-md p-3 hover:bg-gray-100"
