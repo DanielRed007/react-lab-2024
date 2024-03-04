@@ -1,5 +1,5 @@
 import React, { FC, createContext, useContext, useState } from "react";
-import { mockWriters } from "@/util/mocks/mock-data";
+import { mockWriters, tabData, accordionData } from "@/util/mocks/mock-data";
 import { Writer } from "@/util/models/interfaces";
 
 interface LabContextData {
@@ -13,6 +13,8 @@ interface LabContextData {
   setToggleSwitch: () => void;
   radioEnabled: boolean;
   setRadioToggle: () => void;
+  tabGroupData: any;
+  accordionDataSet: any;
 }
 
 const LabContext = createContext<LabContextData | undefined>(undefined);
@@ -39,6 +41,8 @@ export const LabContextProvider: FC<LabContextProviderProps> = ({
     mockWriters[0]
   );
   const [radioEnabled, setRadioEnabled] = useState<boolean>(false);
+  const [tabGroupData, setTabData] = useState(tabData);
+  const [accordionDataSet, setAccordionData] = useState(accordionData);
 
   const openModal = (type: string) => {
     setIsModalOpen(true);
@@ -72,6 +76,8 @@ export const LabContextProvider: FC<LabContextProviderProps> = ({
     toggleEnabled,
     radioEnabled,
     setRadioToggle,
+    tabGroupData,
+    accordionDataSet,
   };
 
   return <LabContext.Provider value={value}>{children}</LabContext.Provider>;

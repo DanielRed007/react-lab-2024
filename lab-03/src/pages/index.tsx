@@ -18,6 +18,8 @@ export default function Index() {
     setToggleSwitch,
     radioEnabled,
     setRadioToggle,
+    tabGroupData,
+    accordionDataSet,
   } = useLabContext();
 
   return (
@@ -69,7 +71,7 @@ export default function Index() {
             <div className="mt-4 mb-4 w-4/6 bg-zinc-500 rounded overflow-hidden shadow-lg">
               <div className="px-6 py-4">
                 {toggleEnabled ? (
-                  <Accordion />
+                  <Accordion options={accordionDataSet} />
                 ) : (
                   <div className="w-full h-full flex justify-center align-center">
                     <h3>Activate toggle to see the Accordion</h3>
@@ -93,7 +95,7 @@ export default function Index() {
         <div className="flex justify-center items-center mt-10">
           <h2 className="text-2xl font-bold mb-4 mr-9">Tabs</h2>
           <div className="flex justify-center flex-row w-3/6 h-96 rounded bg-yellow-500 shadow-lg mx-4">
-            <TabGroup />
+            <TabGroup options={tabGroupData} />
           </div>
         </div>
       </main>

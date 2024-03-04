@@ -138,4 +138,25 @@ describe("Home", () => {
     expect(aristotleOption).toHaveAttribute("aria-checked", "true");
     expect(baruchOption).toHaveAttribute("aria-checked", "false");
   });
+
+  it("navigates options in the Tab Group Component", async () => {
+    renderIndexComponent();
+
+    const maxentiusContent = screen.getByText("Undervalued Roman Emperor");
+    expect(maxentiusContent).toBeInTheDocument();
+
+    const aurelianusButton = await screen.getByTestId("Aurelianus1");
+    fireEvent.click(aurelianusButton);
+
+    const aurelianusContent = screen.getByText(
+      "He restored the empire in critical times"
+    );
+    expect(aurelianusContent).toBeInTheDocument();
+
+    const majorianButton = await screen.getByTestId("Majorian2");
+    fireEvent.click(majorianButton);
+
+    const majorianContent = screen.getByText("The last great roman emperor");
+    expect(majorianContent).toBeInTheDocument();
+  });
 });

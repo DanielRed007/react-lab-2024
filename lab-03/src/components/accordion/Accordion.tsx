@@ -1,17 +1,24 @@
-import { accordionData } from "@/util/mocks/mock-data";
 import { AccordionOption } from "@/util/models/interfaces";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import { FC } from "react";
 
-const Accordion = () => {
+interface AccordionProps {
+  options: AccordionOption[];
+}
+
+const Accordion: FC<AccordionProps> = ({ options }) => {
   return (
     <div className="w-full px-4 pt-16">
       <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
-        {accordionData.map((option: AccordionOption, index: number) => (
+        {options.map((option: AccordionOption, index: number) => (
           <Disclosure key={index}>
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-blue-100 px-4 py-1 text-left text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring focus-visible:ring-blue-500/75">
+                <Disclosure.Button
+                  data-testid={option.title + index}
+                  className="flex w-full justify-between rounded-lg bg-blue-100 px-4 py-1 text-left text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring focus-visible:ring-blue-500/75"
+                >
                   <span>{option.title}</span>
                   <ChevronUpIcon
                     className={`${
