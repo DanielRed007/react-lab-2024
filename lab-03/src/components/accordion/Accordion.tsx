@@ -10,7 +10,10 @@ interface AccordionProps {
 const Accordion: FC<AccordionProps> = ({ options }) => {
   return (
     <div className="w-full px-4 pt-16">
-      <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
+      <div
+        className="mx-auto w-full max-w-md rounded-2xl bg-white p-2"
+        data-testid="accordion-container"
+      >
         {options.map((option: AccordionOption, index: number) => (
           <Disclosure key={index}>
             {({ open }) => (

@@ -2,14 +2,15 @@ import Accordion from "@/components/accordion/Accordion";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { mockWriters, tabData, accordionData } from "@/util/mocks/mock-data";
+import { AccordionOption } from "@/util/models/interfaces";
 
-function renderAccordion() {
-  return render(<Accordion options={accordionData} />);
+function renderAccordion(data: AccordionOption[] | []) {
+  return render(<Accordion options={data} />);
 }
 
 describe("Accordion Component", () => {
   it("should render the Accordion Component", () => {
-    renderAccordion();
+    renderAccordion(accordionData);
 
     const titusOption = screen.getByTestId("Titus Livi0");
     expect(titusOption).toHaveAttribute("aria-expanded", "false");
@@ -19,7 +20,7 @@ describe("Accordion Component", () => {
   });
 
   it("should display the Accordion options when click on every option", async () => {
-    renderAccordion();
+    renderAccordion(accordionData);
 
     const titusOption = screen.getByTestId("Titus Livi0");
     expect(titusOption).toHaveAttribute("aria-expanded", "false");
@@ -45,5 +46,12 @@ describe("Accordion Component", () => {
 
     expect(titusOption).toHaveAttribute("aria-expanded", "true");
     expect(hannibalOption).toHaveAttribute("aria-expanded", "true");
+  });
+
+  it("should display an empty container if there is no data", async () => {
+    renderAccordion([]);
+
+    const accordionContainer = await screen.getByTestId("accordion-container");
+    expect(accordionContainer).toBeEmptyDOMElement();
   });
 });
