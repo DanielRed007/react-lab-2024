@@ -15,3 +15,8 @@ export interface Philosopher {
   country: string;
   role: string;
 }
+
+export interface CheckoutDataOption {
+  title: string;
+  content: string;
+}

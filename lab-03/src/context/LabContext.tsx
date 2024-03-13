@@ -1,6 +1,11 @@
 import React, { FC, createContext, useContext, useState } from "react";
-import { mockWriters, tabData, accordionData } from "@/util/mocks/mock-data";
-import { Writer } from "@/util/models/interfaces";
+import {
+  mockWriters,
+  tabData,
+  accordionData,
+  checkoutData,
+} from "@/util/mocks/mock-data";
+import { CheckoutDataOption, Writer } from "@/util/models/interfaces";
 
 interface LabContextData {
   isModalOpen: boolean;
@@ -15,6 +20,7 @@ interface LabContextData {
   setRadioToggle: () => void;
   tabGroupData: any;
   accordionDataSet: any;
+  checkoutAccData: CheckoutDataOption[];
 }
 
 const LabContext = createContext<LabContextData | undefined>(undefined);
@@ -43,6 +49,7 @@ export const LabContextProvider: FC<LabContextProviderProps> = ({
   const [radioEnabled, setRadioEnabled] = useState<boolean>(false);
   const [tabGroupData, setTabData] = useState(tabData);
   const [accordionDataSet, setAccordionData] = useState(accordionData);
+  const [checkoutAccData, setCheckoutAccData] = useState(checkoutData);
 
   const openModal = (type: string) => {
     setIsModalOpen(true);
@@ -78,6 +85,7 @@ export const LabContextProvider: FC<LabContextProviderProps> = ({
     setRadioToggle,
     tabGroupData,
     accordionDataSet,
+    checkoutAccData,
   };
 
   return <LabContext.Provider value={value}>{children}</LabContext.Provider>;
