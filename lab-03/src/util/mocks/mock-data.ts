@@ -1,4 +1,9 @@
-import { AccordionOption, Philosopher, Writer } from "../models/interfaces";
+import {
+  AccordionOption,
+  CheckoutDataOption,
+  Philosopher,
+  Writer,
+} from "../models/interfaces";
 
 export const mockWriters: Writer[] = [
   {
@@ -125,3 +130,16 @@ export const tabData = {
   Aurelianus: tabDataContent[1],
   Majorian: tabDataContent[2],
 };
+
+export const checkoutData: CheckoutDataOption[] = [
+  {
+    title: "What is your refund policy?",
+    content:
+      "If youre unhappy with your purchase for any reason, email us within 90 days and well refund you in full, no questions asked.",
+  },
+  {
+    title: "What is your refund policy?",
+    content:
+      "If youre unhappy with your purchase for any reason, email us within 90 days and well refund you in full, no questions asked.",
+  },
+];
