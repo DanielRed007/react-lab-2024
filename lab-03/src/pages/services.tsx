@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import CheckoutAccordion from "@/components/checkout-accordion/CheckoutAccordion";
+import CheckoutOrderAccordion from "@/components/checkout-order-accordion/CheckoutOrderAccordion";
 
 export default function Index() {
   // State for controlling the modal
@@ -16,10 +17,17 @@ export default function Index() {
           <h2 className="text-2xl font-bold mb-4 mr-9">Modals</h2>
         </div>
 
-        <div className="flex justify-center items-center mt-10">
+        <div className="flex justify-center items-center mt-10 mb-10">
           <h2 className="text-2xl font-bold mb-4 mr-9">Dropdown</h2>
-          <div className="flex justify-center flex-row w-4/6 h-96 rounded bg-yellow-500 shadow-lg mx-4">
+          <div className="flex justify-center flex-row w-4/6 h-auto rounded bg-yellow-500 shadow-lg mx-4">
             <CheckoutAccordion />
+          </div>
+        </div>
+
+        <div className="flex justify-center items-center mt-10 mb-10">
+          <h2 className="text-2xl font-bold mb-4 mr-9">Order</h2>
+          <div className="flex justify-center flex-row w-4/6 h-auto rounded bg-yellow-500 shadow-lg mx-4">
+            <CheckoutOrderAccordion />
           </div>
         </div>
       </main>

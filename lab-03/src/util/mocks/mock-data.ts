@@ -133,12 +133,12 @@ export const tabData = {
 
 export const checkoutData: CheckoutDataOption[] = [
   {
-    title: "What is your refund policy?",
+    title: "Personal Data",
     content:
       "If youre unhappy with your purchase for any reason, email us within 90 days and well refund you in full, no questions asked.",
   },
   {
-    title: "What is your refund policy?",
+    title: "Your Order",
     content:
       "If youre unhappy with your purchase for any reason, email us within 90 days and well refund you in full, no questions asked.",
   },
